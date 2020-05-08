@@ -48,15 +48,4 @@ export default [
     plot:
       "Elle Woods (Reese Witherspoon), a fashionable sorority queen is dumped by her boyfriend. She decides to follow him to law school, while she is there, she figures out that there is more to her than just looks.."
   },
-  {
-    pics: [
-      "https://m.media-amazon.com/images/M/MV5BNTEyNjUwMTkxMV5BMl5BanBnXkFtZTcwNjk0NDk0NA@@._V1_SX300.jpg",
-      "https://m.media-amazon.com/images/M/MV5BMTkwNzExMjk0MF5BMl5BanBnXkFtZTcwOTUzNDcyMw@@._V1_SX300.jpg"
-    ],
-    name: "Legally Blonde",
-    year: 2001,
-    rating: "PG",
-    plot:
-      "Elle Woods (Reese Witherspoon), a fashionable sorority queen is dumped by her boyfriend. She decides to follow him to law school, while she is there, she figures out that there is more to her than just looks.."
-  }
 ];
