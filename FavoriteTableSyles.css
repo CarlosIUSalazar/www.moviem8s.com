@@ -1,0 +1,94 @@
+body {
+    max-width: 500px;
+    margin: auto;
+}
+.leaderBoardTitle {
+    font-size: xx-large;
+    font-family: Arcade_I;
+    font-weight: 100;
+    text-align: center;
+    color: blue;
+}
+
+.tableHead1 {
+    font-family: Arcade_N;
+    font-weight: 100;
+    text-align: center;
+    border: 1px solid rgb(136, 36, 111);
+    padding: 8px;
+    color: rgb(255, 251, 4);
+    background-color: red
+}
+
+.tableHead2 {
+    font-family: Arcade_N;
+    font-weight: 100;
+    text-align: center;
+    width: 100px;
+    border: 1px solid rgb(136, 36, 111);
+    padding: 8px;
+    color: rgb(255, 251, 4);
+    background-color:red
+}
+
+.tableHead3 {
+    font-family: Arcade_N;
+    font-weight: 100;
+    text-align: center;
+    border: 1px solid rgb(136, 36, 111);
+    padding: 8px;
+    color: rgb(255, 251, 4);
+    background-color: red
+}
+
+.tableHead4 {
+    font-family: Arcade_N;
+    font-weight: 100;
+    text-align: center;
+    border: 1px solid rgb(136, 36, 111);
+    padding: 8px;
+    color: rgb(255, 251, 4);
+    background-color: red
+}
+
+.tableHead5 {
+    font-family: Arcade_N;
+    font-weight: 100;
+    text-align: center;
+    border: 1px solid rgb(136, 36, 111);
+    padding: 8px;
+    color: rgb(255, 251, 4);
+    background-color: red
+}
+
+#table {
+    text-align: center;
+    justify-content: center;
+    /* font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: large;
+}
+
+#table td,
+#table th {
+    border: 1px solid rgb(136, 36, 111);
+    padding: 8px;
+}
+
+#table tr:nth-child(even) {
+    background-color: #eaff0070;
+}
+
+#table tr:hover {
+    background-color: rgb(221, 221, 221);
+}
+
+#table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}

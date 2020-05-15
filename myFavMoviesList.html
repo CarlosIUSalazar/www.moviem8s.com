@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Favorite Movies List</title>
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Firestore -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-firestore.js"></script>
+
+    <link rel="stylesheet" href="./FavoriteTableSyles.css">
+</head>
+
+<body>
+    <script class="favoriteMoviesListTable" src="favoriteMoviesList.js" async defer></script>
+    <p class="leaderBoardTitle">MY FAVORITE MOVIES DATABASE</p>
+    <p><a class="backHomeLink" href="./App.js">Back to Movies</a></p>
+    <table class="table my-3">
+        <thead>
+            <tr class="tableRow">
+                <!-- <th scope="col">Id</th> -->
+                <th class="tableHead1" scope="col">Movie Name</th>
+                <th class="tableHead2" scope="col">Image Link</th>
+                <th class="tableHead3" scope="col">Rating</th>
+                <th class="tableHead4" scope="col">Year</th>
+                <th class="tableHead5" scope="col">Plot</th>
+            </tr>
+        </thead>
+        <tbody id="table">
+        </tbody>
+    </table>
+
+
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
