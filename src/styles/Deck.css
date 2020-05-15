@@ -47,7 +47,7 @@ body {
     auto;
 }
 
-#root > div {
+#root > div > div {
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -57,7 +57,7 @@ body {
   justify-content: center;
 }
 
-#root > div > div {
+#root > div > div > div {
   padding: 5px;
   background-color: white;
   background-size: auto 85%;

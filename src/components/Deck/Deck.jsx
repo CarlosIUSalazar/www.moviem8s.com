@@ -2,10 +2,12 @@
 import React, { useState } from "react";
 import { useSprings } from "react-spring/hooks";
 import { useGesture } from "react-with-gesture";
-import Card from "./Card";
-import data from "../data.js";
-import randomMovies from "../randomMovies.js";
-import "../styles/Deck.css";
+import Card from "../Card/Card";
+import data from "../../data.js";
+import randomMovies from "../../randomMovies.js";
+
+import {Link} from "react-router-dom";
+import "../../styles/Deck.css";
 
 import firebase from "firebase";
 
@@ -20,12 +22,9 @@ let firebaseConfig = {
     appId: "1:223030327474:web:8f756c893c3cd008f6f1ab"
   };
 
-firebase.initializeApp(firebaseConfig);
-  //let dbFavMovies = firebase.firestore();
+  firebase.initializeApp(firebaseConfig);
   let database = firebase.firestore();
-  // let dbFavMovies = firebase.firestore();
-  
-  
+
 ///Attempt to generate 5 random cards ///
 function shuffleNewMovieDeck() {
 let length = randomMovies.length;
@@ -174,17 +173,17 @@ function Deck() {
   );
     // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
   return props.map(({ x, y, rot, scale }, i) => (
-    <Card
-      i={i}
-      x={x}
-      y={y}
-      rot={rot}
-      scale={scale}
-      trans={trans}
-      data={data}
-      bind={bind}
-    />
-  ));
+        <Card
+          i={i}
+          x={x}
+          y={y}
+          rot={rot}
+          scale={scale}
+          trans={trans}
+          data={data}
+          bind={bind}
+        />
+      ))
 }
 
 export default Deck;
