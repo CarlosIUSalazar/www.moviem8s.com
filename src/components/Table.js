@@ -21,37 +21,8 @@ let dbFavMovies = firebase.firestore();
 
 
 function Table(){
-//     let table = document.getElementById('table');
-// dbFavMovies.collection("myMovies").orderBy('MovieName').onSnapshot((querySnapshot) => {
-//     table.innerHTML = '';
-//     querySnapshot.forEach((doc) => {
-//         console.log(`${doc.id} => ${doc.data().first}`);
-//         table.innerHTML += `
-//         <tr>
-//         <td>${doc.data().MovieName}</td>
-//         <td>${doc.data().Actor}</td>
-//         <td>${doc.data().Year}</td>
-//         </tr>
-//         `
-//     });
-// });
+
     return null 
-        // <>
-        // <p class="leaderBoardTitle">My Fav Movies Database</p>
-        // <p><a class="backHomeLink" href="../src/App.js">Back to Home</a></p>
-        // <table class="table my-3">
-        //     <thead>
-        //         <tr class="tableRow">
-        //             <th scope="col">Id</th>
-        //             <th class="tableHead1" scope="col">Movie Name</th>
-        //             <th class="tableHead2" scope="col">Actor</th>
-        //             <th class="tableHead3" scope="col">Year</th>
-        //         </tr>
-        //     </thead>
-        //     <tbody id="table">
-        //     </tbody>
-        // </table>
-        // </>
     
 }
 

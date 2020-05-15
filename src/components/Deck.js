@@ -4,8 +4,22 @@ import { useGesture } from "react-with-gesture";
 
 import Card from "./Card";
 import data from "../data.js";
-
+import randomMovies from "../randomMovies.js";
 import "../styles/Deck.css";
+
+
+///Attempt to generate 5 random cards ///
+function shuffleNewMovieDeck() {
+let length = randomMovies.length;
+let randomMovieIndex = ""
+for (let i = 1; i <= 5; i++){
+  randomMovieIndex = Math.floor(Math.random() * length)
+  data.push(randomMovies[randomMovieIndex])
+}
+}
+
+
+
 
 const to = i => ({
   x: 0,
@@ -20,8 +34,12 @@ const trans = (r, s) =>
   `perspective(1500px) rotateX(30deg) rotateY(${r /
     10}deg) rotateZ(${r}deg) scale(${s})`;
 
+
 function Deck() {
+  shuffleNewMovieDeck()
+  console.log("all cards gone now!")
   const [gone] = useState(() => new Set());
+
 
   const [props, set] = useSprings(data.length, i => ({
     ...to(i),
@@ -37,6 +55,7 @@ function Deck() {
       direction: [xDir],
       velocity
     }) => {
+      
       const trigger = velocity > 0.2;
 
       const dir = xDir < 0 ? -1 : 1;
@@ -46,7 +65,6 @@ function Deck() {
       set(i => {
         if (index !== i) return;
         const isGone = gone.has(index);
-
         const x = isGone ? (200 + window.innerWidth) * dir : down ? xDelta : 0;
 
         const rot = xDelta / 100 + (isGone ? dir * 10 * velocity : 0);
@@ -62,7 +80,9 @@ function Deck() {
       });
 
       if (!down && gone.size === data.length)
+        
         setTimeout(() => gone.clear() || set(i => to(i)), 600);
+        
     }
   );
 
