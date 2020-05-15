@@ -17,9 +17,7 @@ for (let i = 1; i <= 5; i++){
   data.push(randomMovies[randomMovieIndex])
 }
 }
-
-
-
+let count = 0;
 
 const to = i => ({
   x: 0,
@@ -37,6 +35,7 @@ const trans = (r, s) =>
 
 function Deck() {
   shuffleNewMovieDeck()
+  console.log("Current deck of cards is: ", data)
   console.log("all cards gone now!")
   const [gone] = useState(() => new Set());
 
@@ -55,7 +54,7 @@ function Deck() {
       direction: [xDir],
       velocity
     }) => {
-      
+
       const trigger = velocity > 0.2;
 
       const dir = xDir < 0 ? -1 : 1;
