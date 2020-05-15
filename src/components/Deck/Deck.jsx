@@ -5,25 +5,27 @@ import { useGesture } from "react-with-gesture";
 import Card from "../Card/Card";
 import data from "../../data.js";
 import randomMovies from "../../randomMovies.js";
+import firebase from "firebase";
+// import fbInitialization from "../../fbInitialization";
 
 import {Link} from "react-router-dom";
 import "../../styles/Deck.css";
 
-import firebase from "firebase";
+// import firebase from "firebase";
 
-let firebaseConfig = {
-  // Your web app's Firebase configuration
-    apiKey: "AIzaSyBLo8Qodatxni6vT2np4XGvNVgz1-XTHMY",
-    authDomain: "moviem8s.firebaseapp.com",
-    databaseURL: "https://moviem8s.firebaseio.com",
-    projectId: "moviem8s",
-    storageBucket: "moviem8s.appspot.com",
-    messagingSenderId: "223030327474",
-    appId: "1:223030327474:web:8f756c893c3cd008f6f1ab"
-  };
+// let firebaseConfig = {
+//   // Your web app's Firebase configuration
+//     apiKey: "AIzaSyBLo8Qodatxni6vT2np4XGvNVgz1-XTHMY",
+//     authDomain: "moviem8s.firebaseapp.com",
+//     databaseURL: "https://moviem8s.firebaseio.com",
+//     projectId: "moviem8s",
+//     storageBucket: "moviem8s.appspot.com",
+//     messagingSenderId: "223030327474",
+//     appId: "1:223030327474:web:8f756c893c3cd008f6f1ab"
+//   };
 
-  firebase.initializeApp(firebaseConfig);
-  let database = firebase.firestore();
+  // firebase.initializeApp(fbInitialization);
+  // let database = firebase.firestore();
 
 ///Attempt to generate 5 random cards ///
 function shuffleNewMovieDeck() {
@@ -32,7 +34,6 @@ let randomMovieIndex = ""
 for (let i = 1; i <= 5; i++){
   randomMovieIndex = Math.floor(Math.random() * length)
   data.push(randomMovies[randomMovieIndex])
-  
 }
 
 }
@@ -54,20 +55,19 @@ const trans = (r, s) =>
     10}deg) rotateZ(${r}deg) scale(${s})`;
 
 
-function Deck() {
+export default function Deck({db}) {
   shuffleNewMovieDeck()
   console.log("Current deck of cards is: ", data)
   console.log("all cards gone now!")
   // The set flags all the cards that are flicked out
-  const [gone] = useState(() => new Set());  
+  const [gone] = useState(() => new Set());
 
 // Create a bunch of springs using the helpers above
   // Create a gesture, we're interested in down-state, delta (current-pos - click-pos), direction and velocity
-  const [props, set] = useSprings(data.length, i => ({ 
+  const [props, set] = useSprings(data.length, i => ({
     ...to(i),
     from: from(i)
   }));
-  
   const bind = useGesture(
     ({
       args: [index],
@@ -78,12 +78,12 @@ function Deck() {
       velocity
     }) => {
       // If you flick hard enough it should trigger the card to fly out
-      const trigger = velocity > 0.2; 
+      const trigger = velocity > 0.2;
       // Direction should either point left or right
-      const dir = xDir < 0 ? -1 : 1; 
-      // If button/finger's up and trigger velocity is reached, we flag the card 
+      const dir = xDir < 0 ? -1 : 1;
+      // If button/finger's up and trigger velocity is reached, we flag the card
       if (!down && trigger) {
-        gone.add(index); 
+        gone.add(index);
         if (count === 0) {
           selectedMovie = data[4]
           console.log("Selected Movie was ", data[4])
@@ -112,7 +112,7 @@ function Deck() {
       }
       set(i => {
         // We're only interested in changing spring-data for the currentspring
-        if (index !== i) return;  
+        if (index !== i) return;
         const isGone = gone.has(index);
         // When a card is gone it flys out left or right, otherwise goes back to zero
         const x = isGone ? (200 + window.innerWidth) * dir : down ? xDelta : 0;
@@ -128,13 +128,11 @@ function Deck() {
           console.log("swipe left")
           swipeRight = false;
         }
-        
-
         //Save to Database When Swipe Right
         console.log("Final value of swipeRight = ", swipeRight)
         console.log("SelectedMovieName", selectedMovie.name)
         if (isGone === true && swipeRight === true){
-        database
+        db
         .collection("RealTable")
         .add({
           Name: selectedMovie.name,
@@ -151,10 +149,7 @@ function Deck() {
         });
       }
 
-
-
         return {
-          
           x,
           rot,
           scale,
@@ -162,14 +157,12 @@ function Deck() {
           config: { friction: 50, tension: down ? 800 : isGone ? 200 : 500 }
         };
       });
-      
 
       if (!down && gone.size === data.length)
         setTimeout(() => gone.clear() || set(i => to(i)), 600);
         console.log("Final value of swipeRight = ", swipeRight)
         console.log("SelectedMovieName", selectedMovie.name)
     }
-    
   );
     // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
   return props.map(({ x, y, rot, scale }, i) => (
@@ -185,5 +178,3 @@ function Deck() {
         />
       ))
 }
-
-export default Deck;
