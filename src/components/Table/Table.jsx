@@ -40,25 +40,24 @@ function Table({db}){
     //   }
     // }, [db])
 
-    useEffect(() => {
-      const unsubscribe = db.collection('RealTable').orderBy('Name')
-        .get()
-        .then((data) => {
-          const tmp = [];
-          data.forEach((el) => {
-            tmp.push(el);
-          })
-          setmyFavMovies(tmp);
-          setIsLoading(false);
-        })
-    }, [db])
+    // useEffect(() => {
+    //   const unsubscribe = db.collection('RealTable').orderBy('Name')
+    //     .get()
+    //     .then((data) => {
+    //       const tmp = [];
+    //       data.forEach((el) => {
+    //         tmp.push(el);
+    //       })
+    //       setmyFavMovies(tmp);
+    //       setIsLoading(false);
+    //     })
+    // }, [db])
 
 
     return (
       <div>
-      {console.log(db.collection("RealTable").orderBy('Name'))}
       <table>
-      {isLoading ? <div>Loading</div> : myFavMovies.map(movie => {
+      {/* {isLoading ? <div>Loading</div> : myFavMovies.map(movie => {
         return (
           <tr>
           <td>{movie.data().Name}</td>
@@ -68,10 +67,11 @@ function Table({db}){
           <td>{movie.data().Plot}</td>
         </tr>
         )
-      })}
-      {/* {db.collection("RealTable").orderBy('Name').onSnapshot((querySnapshot) => {
-          querySnapshot.map((doc) => {
-            // console.log(`${doc.id} => ${doc.data().first}`);
+      })} */}
+      {db.collection("RealTable").orderBy('Name').onSnapshot((querySnapshot) => {
+          querySnapshot.docs.map((doc) => {
+            // console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
+            console.log(doc.data().ImageLink);
             return (
               <tr>
                 <td>{doc.data().Name}</td>
@@ -82,7 +82,7 @@ function Table({db}){
               </tr>
             )
           });
-      })} */}
+      })}
       </table>
       <Link to={"/deck"}>
         <button>Go back to decks</button>
