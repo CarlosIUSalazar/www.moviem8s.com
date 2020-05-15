@@ -35,7 +35,7 @@ for (let i = 1; i <= 5; i++){
   data.push(randomMovies[randomMovieIndex])
   
 }
-
+console.log("random Movies amount: ", length)
 }
 let count = 0;
 let selectedMovie = "";
