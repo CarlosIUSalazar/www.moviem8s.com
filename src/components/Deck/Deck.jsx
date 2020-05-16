@@ -43,7 +43,7 @@ const trans = (r, s) =>
     10}deg) rotateZ(${r}deg) scale(${s})`;
 
 
-export default function Deck({db}) {
+export default function Deck({db, fetchData}) {
 //   useEffect(() => {
 //    setTimeout(function(){ window.location.reload(true); }, 1);
 //  },[])
@@ -154,6 +154,12 @@ export default function Deck({db}) {
         .catch(function (error) {
           console.error("Error adding document: ", error);
         });
+
+        //// THIS SENDS BACK THE ADDED CARD TO THE STATE ALL THE WAY BACK IN APP.JSX SO IT CAN
+        // BE DISPLAYED REAL TIME IN THE TABLE WITHOUT RELOADING.
+        fetchData()
+        ///
+
       }
 
         return {

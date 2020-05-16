@@ -3,7 +3,14 @@ import {Link} from "react-router-dom";
 import FavList from "../FavList";
 
 // function renderFavMoviesRow(doc){
+// let toggle = true;
 
+// function reloadFavTable(){
+//   if (toggle) {
+//     toggle = false;
+//     setTimeout(function(){ window.location.reload(true); }, 1);  
+//   }
+// }
 // }
 
 export default function Table(props){
@@ -13,7 +20,9 @@ export default function Table(props){
 //   React.useEffect(() => {
 //     setTimeout(function(){ window.location.reload(true); }, 1);
 //  },[])
-    
+// reloadFavTable();
+// toggle = false;
+
 return (
       <div>
       <FavList db={props.db} favMovies={props.favMovies}/>
