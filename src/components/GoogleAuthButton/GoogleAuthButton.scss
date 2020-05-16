@@ -10,10 +10,10 @@ $color-light-black: #343434;
   &:visited {
     text-transform: uppercase;
     text-decoration: none;
-
     display: inline-block;
     border-radius: 10rem;
     background-color: $color-black;
+    font-weight: bold;
 
 
     margin-bottom: 15rem;

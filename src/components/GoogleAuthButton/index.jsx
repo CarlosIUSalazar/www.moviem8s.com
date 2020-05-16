@@ -8,6 +8,7 @@ import "./GoogleAuthButton.scss";
 
 export default function GoogleAuthButton(){
   const [userAuth, setUserAuth] = useState("");
+  const [loginState, setLoginState] = useState(false);
 
   const { addGoogleUserInfo, toggleLoginState } = useContext(LoginContext);
 
@@ -23,15 +24,22 @@ export default function GoogleAuthButton(){
         setUserAuth(auth);
       });
     });
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    if(loginState){
+      setTimeout(() => history.push("/deck"),3000)
+    }
+  }, [loginState])
 
   function onSignInClick(){
     userAuth.signIn().then((signedInUser) => {
       addGoogleUserInfo(signedInUser.Pt)
       toggleLoginState();
+      setLoginState(true);
     });
 
-    setTimeout(() => history.push("/deck"),3000)
+    // setTimeout(() => history.push("/deck"),3000)
   };
   return(
     <div>
