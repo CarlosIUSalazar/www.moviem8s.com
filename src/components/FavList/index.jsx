@@ -1,7 +1,56 @@
 import React from "react";
+import firebase from "firebase"
+import firebaseConfig from '../../fbInitialization'
+import { firestore } from "firebase";
 
-export default function FavList({db}){
-  return <table>
+export default function FavList(props){
+
+  // const [favMovies, setFavMovies] = React.useState([])
+
+  // React.useEffect(() => {
+  //   const fetchData = async () => {
+  //   db = firebase.firestore();
+  //   const favMovieData = await db.collection("RealTable").get()
+  //   setFavMovies(favMovieData.docs.map(doc => doc.favMovieData()))
+  //   }
+  //   fetchData()
+  // },[])
+  console.log("favMovies state is ", props.favMovies)
+  return (
+    <ul>
+      {props.favMovies.map(movie => (
+        <li key={movie.Name}>{movie.Name}</li>
+      ))}
+    </ul>
+  );
+}
+
+
+
+// return (
+//     <div>
+//       {props.items.map !== undefined &&
+//         props.items.map(task => {
+//           return (
+//             <li>
+//               <input type="checkbox" />
+//               {task}
+//             </li>
+//           );
+//         })}
+//     </div>
+//   );
+
+
+
+
+
+
+
+
+
+
+{/* <table>
       <tbody>
         <tr>
         {db.collection("RealTable").orderBy('Name').onSnapshot((querySnapshot) => {
@@ -20,5 +69,4 @@ export default function FavList({db}){
           })}
         </tr>
     </tbody>
-  </table>
-}
+  </table> */}

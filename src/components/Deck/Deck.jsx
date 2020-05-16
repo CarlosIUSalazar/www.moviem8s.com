@@ -11,9 +11,6 @@ import { useGesture } from "react-with-gesture";
 
 import "../../styles/Deck.css";
 
-
-
-
 ///Attempt to generate 5 random cards ///
 function shuffleNewMovieDeck() {
 let length = randomMovies.length;

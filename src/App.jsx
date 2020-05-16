@@ -12,9 +12,22 @@ import {LoginProvider} from "./context/LoginState";
 
 
 function App() {
-
-  firebase.initializeApp(fbInitialization);
+  if (!firebase.apps.length) {
+    firebase.initializeApp(fbInitialization);
+ }
+  
   const fbConfig = firebase.firestore();
+  console.log("fbConfig",fbConfig)
+  const [favMovies, setFavMovies] = React.useState([])
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+    //const db = firebase.firestore();
+    const data = await fbConfig.collection("RealTable").get()
+    setFavMovies(data.docs.map(doc => doc.data()))
+    }
+    fetchData()
+  },[])
 
   return (
     <LoginProvider>
@@ -26,7 +39,7 @@ function App() {
           render={(props) => <DeckPage {...props} db={fbConfig} />}
           />
           <Route exact path="/favorite-movies"
-            render={(props) => <Table {...props} db={fbConfig} />}
+            render={(props) => <Table {...props} db={fbConfig} favMovies={favMovies} />}
           />
         </Switch>
       </Router>
