@@ -31,7 +31,7 @@ function App() {
 const fetchData = async () => {
   const data = await fbConfig.collection("RealTable").get()
   setFavMovies(data.docs.map(doc => doc.data()))
-  }
+}
 
 /////
   return (
@@ -44,7 +44,7 @@ const fetchData = async () => {
           render={(props) => <DeckPage {...props} db={fbConfig} fetchData={fetchData}/>}
           />
           <Route exact path="/favorite-movies"
-            render={(props) => <Table {...props} db={fbConfig} favMovies={favMovies} />}
+            render={(props) => <Table {...props} db={fbConfig} favMovies={favMovies} fetchData={fetchData}/>}
           />
         </Switch>
       </Router>

@@ -61,6 +61,7 @@ export default function Deck({db, fetchData}) {
     setTimeout(function(){ window.location.reload(true); }, 0);
   }
   console.log("Current deck of cards is: ", data)
+  console.log("Count", count)
   console.log("all cards gone now!")
   // The set flags all the cards that are flicked out
   const [gone] = useState(() => new Set());
@@ -134,6 +135,7 @@ export default function Deck({db, fetchData}) {
         //Save to Database When Swipe Right
         console.log("Final value of swipeRight = ", swipeRight)
         console.log("SelectedMovieName", selectedMovie.name)
+        
         if (isGone === true && swipeRight === true){
         db
         .collection("RealTable")
@@ -155,13 +157,12 @@ export default function Deck({db, fetchData}) {
           console.error("Error adding document: ", error);
         });
 
-        //// THIS SENDS BACK THE ADDED CARD TO THE STATE ALL THE WAY BACK IN APP.JSX SO IT CAN
-        // BE DISPLAYED REAL TIME IN THE TABLE WITHOUT RELOADING.
-        fetchData()
-        ///
-
       }
-
+      
+              //// THIS SENDS BACK THE ADDED CARD TO THE STATE ALL THE WAY BACK IN APP.JSX SO IT CAN
+        // BE DISPLAYED REAL TIME IN THE TABLE WITHOUT RELOADING.
+        //fetchData()
+        ///
         return {
           x,
           rot,
@@ -176,6 +177,7 @@ export default function Deck({db, fetchData}) {
         console.log("Final value of swipeRight = ", swipeRight)
         console.log("SelectedMovieName", selectedMovie.name)
     }
+    
   );
     // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
   return props.map(({ x, y, rot, scale }, i) => (

@@ -23,9 +23,11 @@ export default function Table(props){
 // reloadFavTable();
 // toggle = false;
 
+
+
 return (
       <div>
-      <FavList db={props.db} favMovies={props.favMovies}/>
+      <FavList db={props.db} favMovies={props.favMovies} fetchData={props.fetchData}/>
       <Link to={"/deck"} >
         <button>Go back to decks</button>
       </Link>

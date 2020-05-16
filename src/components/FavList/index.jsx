@@ -4,7 +4,9 @@ import firebaseConfig from '../../fbInitialization'
 import { firestore } from "firebase";
  
 export default function FavList(props){
-
+  //fetchData is used to set the state in App.jsx Depending where I tried fetchData the behaviour of the App changed. This seems to be a good place for it.
+  props.fetchData();
+  
   console.log("favMovies state is ", props.favMovies)
   return (
     <table>
