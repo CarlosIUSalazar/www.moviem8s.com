@@ -123,6 +123,10 @@ export default function Deck({db}) {
         db
         .collection("RealTable")
         .add({
+          UserID: loginUser.userID,
+          UserFirstName: loginUser.userFirstName,
+          UserLastName: loginUser.userLastName,
+          UserEmail: loginUser.userEmail,
           Name: selectedMovie.name,
           ImageLink: selectedMovie.pics[0],
           Year: selectedMovie.year,
