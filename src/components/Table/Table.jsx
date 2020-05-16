@@ -10,7 +10,11 @@ export default function Table(props){
     // const [myFavMovies, setmyFavMovies] = useState([]);
     // const [isLoading, setIsLoading] = useState(true);
 
-    return (
+//   React.useEffect(() => {
+//     setTimeout(function(){ window.location.reload(true); }, 1);
+//  },[])
+    
+return (
       <div>
       <FavList db={props.db} favMovies={props.favMovies}/>
       <Link to={"/deck"} >

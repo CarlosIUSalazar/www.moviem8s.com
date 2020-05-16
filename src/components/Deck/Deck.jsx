@@ -15,9 +15,9 @@ import "../../styles/Deck.css";
 function shuffleNewMovieDeck() {
 let length = randomMovies.length;
 let randomMovieIndex = ""
-// if (data.length > 5){
-//   data.splice(5)
-// }
+if (data.length > 5){
+  data.splice(5)
+}
 
 for (let i = 1; i <= 5; i++){
   randomMovieIndex = Math.floor(Math.random() * length)
@@ -45,7 +45,7 @@ const trans = (r, s) =>
 
 export default function Deck({db}) {
 //   useEffect(() => {
-//     setTimeout(function(){ window.location.reload(true); }, 1);
+//    setTimeout(function(){ window.location.reload(true); }, 1);
 //  },[])
 
   const {loginUser, isUserLoggedIn} = useContext(LoginContext);
@@ -53,6 +53,10 @@ export default function Deck({db}) {
   console.log("HOW ABOUT THIS?????", isUserLoggedIn)
 
   shuffleNewMovieDeck()
+  if (data.length > 5){
+    data.splice(5)
+  }
+  count = 0;
   if (data.length > 5){
     setTimeout(function(){ window.location.reload(true); }, 0);
   }
