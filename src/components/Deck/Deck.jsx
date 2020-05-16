@@ -50,9 +50,6 @@ export default function Deck({db}) {
 //   useEffect(() => {
 //     setTimeout(function(){ window.location.reload(true); }, 1);
 //  },[])
-  // if (data.length > 5){
-  //   data.splice(5)
-  // }
 
   const {loginUser, isUserLoggedIn} = useContext(LoginContext);
   console.log("GOT IT?????", loginUser)
@@ -62,7 +59,6 @@ export default function Deck({db}) {
   if (data.length > 5){
     setTimeout(function(){ window.location.reload(true); }, 0);
   }
-
   console.log("Current deck of cards is: ", data)
   console.log("all cards gone now!")
   // The set flags all the cards that are flicked out
