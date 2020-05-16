@@ -1,0 +1,7 @@
+.fav-button{
+  position: absolute;
+  top: 30px;
+  right: 50px;
+
+  z-index: 9999;
+}
