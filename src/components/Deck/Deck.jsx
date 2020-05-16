@@ -1,5 +1,5 @@
 //https://codesandbox.io/embed/j0y0vpz59   Example
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 import Card from "../Card/Card";
 import {LoginContext} from "../../context/LoginState";
@@ -11,10 +11,17 @@ import { useGesture } from "react-with-gesture";
 
 import "../../styles/Deck.css";
 
+
+
+
 ///Attempt to generate 5 random cards ///
 function shuffleNewMovieDeck() {
 let length = randomMovies.length;
 let randomMovieIndex = ""
+// if (data.length > 5){
+//   data.splice(5)
+// }
+
 for (let i = 1; i <= 5; i++){
   randomMovieIndex = Math.floor(Math.random() * length)
   data.push(randomMovies[randomMovieIndex])
@@ -40,11 +47,22 @@ const trans = (r, s) =>
 
 
 export default function Deck({db}) {
+//   useEffect(() => {
+//     setTimeout(function(){ window.location.reload(true); }, 1);
+//  },[])
+  // if (data.length > 5){
+  //   data.splice(5)
+  // }
+
   const {loginUser, isUserLoggedIn} = useContext(LoginContext);
   console.log("GOT IT?????", loginUser)
   console.log("HOW ABOUT THIS?????", isUserLoggedIn)
 
   shuffleNewMovieDeck()
+  if (data.length > 5){
+    setTimeout(function(){ window.location.reload(true); }, 0);
+  }
+
   console.log("Current deck of cards is: ", data)
   console.log("all cards gone now!")
   // The set flags all the cards that are flicked out
