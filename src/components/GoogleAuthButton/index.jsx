@@ -1,7 +1,13 @@
 import React, {useState, useEffect, useContext} from "react";
 
+import {LoginContext} from "../../context/LoginState";
+
+import history from "../../history";
+
 export default function GoogleAuthButton(){
   const [userAuth, setUserAuth] = useState("");
+
+  const { addGoogleUserInfo } = useContext(LoginContext)
 
   useEffect(() => {
     window.gapi.load("client:auth2", () => {
@@ -18,8 +24,11 @@ export default function GoogleAuthButton(){
   }, [])
 
   function onSignInClick(){
-    userAuth.signIn().then((signedInUser) => console.log(signedInUser.Pt
-      ));
+    // userAuth.signIn().then((signedInUser) => addGoogleUserInfo(signedInUser.Pt
+    //   ));
+    userAuth.signIn().then((signedInUser) => console.log(signedInUser.Pt));
+
+    history.push("/deck")
     // setIsSignedIn(true);
     // console.log(userInfo);
   };
