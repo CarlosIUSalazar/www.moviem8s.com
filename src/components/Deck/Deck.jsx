@@ -1,31 +1,15 @@
 //https://codesandbox.io/embed/j0y0vpz59   Example
-import React, { useState } from "react";
-import { useSprings } from "react-spring/hooks";
-import { useGesture } from "react-with-gesture";
+import React, { useState, useContext } from "react";
+
 import Card from "../Card/Card";
+import {LoginContext} from "../../context/LoginState";
 import data from "../../data.js";
 import randomMovies from "../../randomMovies.js";
-import firebase from "firebase";
-// import fbInitialization from "../../fbInitialization";
 
-import {Link} from "react-router-dom";
+import { useSprings } from "react-spring/hooks";
+import { useGesture } from "react-with-gesture";
+
 import "../../styles/Deck.css";
-
-// import firebase from "firebase";
-
-// let firebaseConfig = {
-//   // Your web app's Firebase configuration
-//     apiKey: "AIzaSyBLo8Qodatxni6vT2np4XGvNVgz1-XTHMY",
-//     authDomain: "moviem8s.firebaseapp.com",
-//     databaseURL: "https://moviem8s.firebaseio.com",
-//     projectId: "moviem8s",
-//     storageBucket: "moviem8s.appspot.com",
-//     messagingSenderId: "223030327474",
-//     appId: "1:223030327474:web:8f756c893c3cd008f6f1ab"
-//   };
-
-  // firebase.initializeApp(fbInitialization);
-  // let database = firebase.firestore();
 
 ///Attempt to generate 5 random cards ///
 function shuffleNewMovieDeck() {
@@ -56,6 +40,10 @@ const trans = (r, s) =>
 
 
 export default function Deck({db}) {
+  const {loginUser, isUserLoggedIn} = useContext(LoginContext);
+  console.log("GOT IT?????", loginUser)
+  console.log("HOW ABOUT THIS?????", isUserLoggedIn)
+
   shuffleNewMovieDeck()
   console.log("Current deck of cards is: ", data)
   console.log("all cards gone now!")

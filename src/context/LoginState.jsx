@@ -27,10 +27,18 @@ export const LoginProvider = ({children}) => {
     });
   }
 
+  function toggleLoginState(){
+    dispatch({
+      type: "TOGGLE_LOGIN_STATE",
+    })
+  }
+
   return (
     <LoginContext.Provider value={{
       loginUser: state.loginUser,
-      addGoogleUserInfo
+      isUserLoggedIn: state.isUserLoggedIn,
+      addGoogleUserInfo,
+      toggleLoginState
     }}>
       {children}
     </LoginContext.Provider>
