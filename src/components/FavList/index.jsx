@@ -5,12 +5,33 @@ import { firestore } from "firebase";
 
 import "../../styles/FavList.css";
 
+
+
+
+
 export default function FavList(props) {
+
+//Function to add a button that deletes all movies from database and table
+  function deleteMoviesOnTable(){
+    props.db.collection("RealTable")
+    .get()
+    .then(res => {
+      res.forEach(element => {
+        element.ref.delete();
+      });
+    });
+    //setTimeout(function(){ window.location.reload(true); }, 1);
+  }
+
+
   //fetchData is used to set the state in App.jsx so that the Table updates live without reloading it. Depending where I tried fetchData the behaviour of the App changed. This seems to be a good place for it.
   props.fetchData();
 
   console.log("favMovies state is ", props.favMovies);
   return (
+  <div>  
+    <button onClick={deleteMoviesOnTable}>Delete All Movies From List</button>
+  
     <table className="tableclass">
       <tbody className="tablebodyclass">
         <thead>
@@ -38,6 +59,7 @@ export default function FavList(props) {
         ))}
       </tbody>
     </table>
+  </div>  
   );
 }
 
