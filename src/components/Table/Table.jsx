@@ -27,10 +27,10 @@ export default function Table(props){
 
 return (
       <div>
-      <FavList db={props.db} favMovies={props.favMovies} fetchData={props.fetchData}/>
       <Link to={"/deck"} >
         <button>Go back to decks</button>
       </Link>
+      <FavList db={props.db} favMovies={props.favMovies} fetchData={props.fetchData}/>
     </div>
     )
 }

@@ -1,37 +1,45 @@
 import React from "react";
-import firebase from "firebase"
-import firebaseConfig from '../../fbInitialization'
+import firebase from "firebase";
+import firebaseConfig from "../../fbInitialization";
 import { firestore } from "firebase";
- 
-export default function FavList(props){
-  //fetchData is used to set the state in App.jsx Depending where I tried fetchData the behaviour of the App changed. This seems to be a good place for it.
+
+import "../../styles/FavList.css";
+
+export default function FavList(props) {
+  //fetchData is used to set the state in App.jsx so that the Table updates live without reloading it. Depending where I tried fetchData the behaviour of the App changed. This seems to be a good place for it.
   props.fetchData();
-  
-  console.log("favMovies state is ", props.favMovies)
+
+  console.log("favMovies state is ", props.favMovies);
   return (
-    <table>
-      <tbody>
+    <table className="tableclass">
+      <tbody className="tablebodyclass">
+        <thead>
+        <tr>
+              <th className="tdtableclass">Name</th>
+              <th className="tdtableclass">Year</th>
+              <th className="tdtableclass">Rating</th>
+            </tr>
+        </thead>
         {
-             props.favMovies.map((movie,i) =>(
-                <tr key={i}>
-                 {
-                   //props.favMovies.map((mov,j)=>
-                      <div>
-                      <td key={i}>{movie.Name}</td>
-                      <td key={i}>{movie.Year}</td>
-                      <td key={i}>{movie.Rating}</td>
-                      {/* <td key={j}>{mov.Plot}</td> */}
-                      </div>
-                   //)
-                 }
+        props.favMovies.map((movie, i) => (
+              <div>
+                <tr className="tabletrclass" key={i} >
+                  <td className="tdtableclass" key={i}>
+                    {movie.Name}
+                  </td>
+                  <td className="tdtableclass" key={i}>
+                    {movie.Year}
+                  </td>
+                  <td className="tdtableclass" key={i}>
+                    {movie.Rating}
+                  </td>
                 </tr>
-             ))
-        }
+              </div>
+        ))}
       </tbody>
     </table>
-);
-};
-
+  );
+}
 
 // return (
 //   <ul>
@@ -40,7 +48,6 @@ export default function FavList(props){
 //     ))}
 //   </ul>
 // );
-
 
 // return (
 //     <div>
@@ -55,7 +62,6 @@ export default function FavList(props){
 //         })}
 //     </div>
 //   );
-
 
 // {/* <table>
 //       <tbody>
@@ -76,19 +82,19 @@ export default function FavList(props){
 //           })}
 //         </tr>
 //     </tbody>
-//   </table> 
+//   </table>
 //
 
 //   React.useEffect(() => {
 //     setTimeout(function(){ window.location.reload(true); }, 1);
 //  },[])
-  // const [favMovies, setFavMovies] = React.useState([])
+// const [favMovies, setFavMovies] = React.useState([])
 
-  // React.useEffect(() => {
-  //   const fetchData = async () => {
-  //   db = firebase.firestore();
-  //   const favMovieData = await db.collection("RealTable").get()
-  //   setFavMovies(favMovieData.docs.map(doc => doc.favMovieData()))
-  //   }
-  //   fetchData()
-  // },[])
+// React.useEffect(() => {
+//   const fetchData = async () => {
+//   db = firebase.firestore();
+//   const favMovieData = await db.collection("RealTable").get()
+//   setFavMovies(favMovieData.docs.map(doc => doc.favMovieData()))
+//   }
+//   fetchData()
+// },[])

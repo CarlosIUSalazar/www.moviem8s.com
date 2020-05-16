@@ -29,7 +29,7 @@ function App() {
 
 /////
 const fetchData = async () => {
-  const data = await fbConfig.collection("RealTable").get()
+  const data = await fbConfig.collection("RealTable").orderBy('Name').get()
   setFavMovies(data.docs.map(doc => doc.data()))
 }
 
