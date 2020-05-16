@@ -2,10 +2,14 @@ import React from "react";
 import LoginPage from "./components/LoginPage/LoginPage";
 import DeckPage from "./components/DeckPage/DeckPage";
 import Table from "./components/Table/Table";
-import firebase from "firebase";
 
-import fbInitialization from "./fbInitialization";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import firebase from "firebase";
+import fbInitialization from "./fbInitialization";
+
+import {LoginProvider} from "./context/LoginState";
+
 
 function App() {
 
@@ -13,6 +17,7 @@ function App() {
   const fbConfig = firebase.firestore();
 
   return (
+    <LoginProvider>
       <Router>
         <h1>MovieM8S</h1>
         <Switch>
@@ -25,6 +30,7 @@ function App() {
           />
         </Switch>
       </Router>
+    </LoginProvider>
   );
 }
 
