@@ -19,7 +19,6 @@ function App() {
   return (
     <LoginProvider>
       <Router>
-        <h1>MovieM8S</h1>
         <Switch>
           <Route exact path="/" component={LoginPage}/>
           <Route exact path="/deck"

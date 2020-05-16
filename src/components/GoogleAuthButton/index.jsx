@@ -4,6 +4,8 @@ import {LoginContext} from "../../context/LoginState";
 
 import {useHistory} from "react-router-dom";
 
+import "./GoogleAuthButton.scss";
+
 export default function GoogleAuthButton(){
   const [userAuth, setUserAuth] = useState("");
 
@@ -33,7 +35,10 @@ export default function GoogleAuthButton(){
   };
   return(
     <div>
-      <button onClick={onSignInClick}>Google Login</button>
+      <article className="btn">
+        <div className="btn__neon" onClick={onSignInClick}>Google Login</div>
+      </article>
+
     </div>
   )
 }
