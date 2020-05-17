@@ -11,16 +11,13 @@ import { useGesture } from "react-with-gesture";
 
 import "../../styles/Deck.css";
 
-
-
-
 ///Attempt to generate 5 random cards ///
 function shuffleNewMovieDeck() {
 let length = randomMovies.length;
 let randomMovieIndex = ""
-// if (data.length > 5){
-//   data.splice(5)
-// }
+if (data.length > 5){
+  data.splice(5)
+}
 
 for (let i = 1; i <= 5; i++){
   randomMovieIndex = Math.floor(Math.random() * length)
@@ -46,9 +43,9 @@ const trans = (r, s) =>
     10}deg) rotateZ(${r}deg) scale(${s})`;
 
 
-export default function Deck({db}) {
+export default function Deck({db, fetchData}) {
 //   useEffect(() => {
-//     setTimeout(function(){ window.location.reload(true); }, 1);
+//    setTimeout(function(){ window.location.reload(true); }, 1);
 //  },[])
 
   const {loginUser, isUserLoggedIn} = useContext(LoginContext);
@@ -57,9 +54,14 @@ export default function Deck({db}) {
 
   shuffleNewMovieDeck()
   if (data.length > 5){
+    data.splice(5)
+  }
+  count = 0;
+  if (data.length > 5){
     setTimeout(function(){ window.location.reload(true); }, 0);
   }
   console.log("Current deck of cards is: ", data)
+  console.log("Count", count)
   console.log("all cards gone now!")
   // The set flags all the cards that are flicked out
   const [gone] = useState(() => new Set());
@@ -133,6 +135,7 @@ export default function Deck({db}) {
         //Save to Database When Swipe Right
         console.log("Final value of swipeRight = ", swipeRight)
         console.log("SelectedMovieName", selectedMovie.name)
+        
         if (isGone === true && swipeRight === true){
         db
         .collection("RealTable")
@@ -153,8 +156,13 @@ export default function Deck({db}) {
         .catch(function (error) {
           console.error("Error adding document: ", error);
         });
-      }
 
+      }
+      
+              //// THIS SENDS BACK THE ADDED CARD TO THE STATE ALL THE WAY BACK IN APP.JSX SO IT CAN
+        // BE DISPLAYED REAL TIME IN THE TABLE WITHOUT RELOADING.
+        //fetchData()
+        ///
         return {
           x,
           rot,
@@ -169,6 +177,7 @@ export default function Deck({db}) {
         console.log("Final value of swipeRight = ", swipeRight)
         console.log("SelectedMovieName", selectedMovie.name)
     }
+    
   );
     // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
   return props.map(({ x, y, rot, scale }, i) => (
