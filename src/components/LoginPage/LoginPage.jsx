@@ -1,16 +1,15 @@
 import React from "react";
-
-import {Link} from "react-router-dom";
-
 import Button from "../GoogleAuthButton";
+
+import "./LoginPage.scss";
 
 export default function LoginPage(){
   return(
-    <div>
-      <h1>Login Page</h1>
-      {/* <Link to={"/deck"}> */}
-        <Button/>
-      {/* </Link> */}
+    <div className="login-page">
+      <picture className="main-title">
+        <img className="main-title__pic" src="/moviem8s.png" />
+      </picture>
+      <Button/>
     </div>
   )
 }

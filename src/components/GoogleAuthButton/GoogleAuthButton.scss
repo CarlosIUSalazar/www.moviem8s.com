@@ -1,0 +1,36 @@
+$color-neon-light: #c5fac2;
+$color-neon-green: #1edf11;
+$color-neon-blue: #00f9ff;
+$color-black: #2b2b2b;
+$color-light-black: #343434;
+
+.btn {
+  &,
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10rem;
+    background-color: $color-black;
+    font-weight: bold;
+
+
+    margin-bottom: 15rem;
+    cursor: pointer;
+  }
+
+  &:hover{
+    background-color: $color-light-black;
+    cursor: pointer;
+  }
+
+  &__neon{
+    padding: 1.5rem 4rem;
+    background-image: linear-gradient(to right, $color-neon-green, $color-neon-blue);
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: .2rem;
+    font-size: 1.3rem;
+  }
+}
