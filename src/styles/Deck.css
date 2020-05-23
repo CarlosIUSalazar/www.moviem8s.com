@@ -159,14 +159,11 @@ button[aria-label="next"] {
 	top:1px;
 }
 
-
 .deleteAllMoviesButtonContainer{
   display: flex; justify-content: center;
 }
 
-
-.deleteAllMoviesButton {
-  
+.deleteAllMoviesButton {  
   box-shadow:inset 0px 34px 0px -15px darkred;
   background-color: darkred;
 	border:1 solid black;
