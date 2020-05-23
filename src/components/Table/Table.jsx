@@ -27,7 +27,7 @@ function deleteMoviesOnTable(){
     setTimeout(() => {
       alert("Movies deleted successfully")
           window.location.reload(false);
-      }, 400); 
+      }, 800); 
   });
   //setTimeout(function(){ window.location.reload(true); }, 1);
 }
