@@ -34,7 +34,8 @@ export default function GoogleAuthButton(){
 
   function onSignInClick(){
     userAuth.signIn().then((signedInUser) => {
-      addGoogleUserInfo(signedInUser.Pt)
+      console.log(signedInUser)
+      addGoogleUserInfo(signedInUser.Tt)
       toggleLoginState();
       setLoginState(true);
     });
