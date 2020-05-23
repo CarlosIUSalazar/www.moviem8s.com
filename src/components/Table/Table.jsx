@@ -3,15 +3,91 @@ import {Link} from "react-router-dom";
 import firebase from "firebase";
 import FavList from "../FavList";
 import "../../styles/FavList.css";
-
+import {v4 as uuidv4} from "uuid";
 export default function Table(props){
+
+  const db = firebase.firestore();
+  const [favMovies, setFavMovies] = React.useState([])
+    const fetchData = async () => {
+      const data = await db.collection('RealTable').orderBy('Name').get();
+      setFavMovies(data.docs.map((doc) => doc.data()));
+    }
+
+//Function to add a button that deletes all movies from database and table
+function deleteMoviesOnTable(){
+  db.collection("RealTable")
+  .get()
+  .then(res => {
+    res.forEach(element => {
+      element.ref.delete();
+    });
+    setTimeout(() => {
+      alert("Movies deleted successfully")
+          window.location.reload(false);
+      }, 400); 
+  });
+  //setTimeout(function(){ window.location.reload(true); }, 1);
+}
+
+function deleteSingleMovie(title){
+  let deleteGame = db.collection('RealTable').where('id','==',title);
+  deleteGame.get().then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {
+      doc.ref.delete();
+    });
+    setTimeout(() => {
+  alert("Movie deleted successfully")
+      window.location.reload(false);
+  }, 400); 
+  });
+}
+
+//fetchData is used to set the state in App.jsx so that the Table updates live without reloading it. Depending where I tried fetchData the behaviour of the App changed. This seems to be a good place for it.
+React.useEffect(() => {
+  fetchData();
+}, [])
+
 
 return (
       <div class="favTableContainer">
-      <Link to={"/deck"} >
+
+      {/* <FavList db={props.db}/> */}
+  <div class="favTableContainer">
+  <Link to={"/deck"} >
         <button>Go back to decks</button>
       </Link>
-      <FavList db={props.db}/>
+  <button onClick={deleteMoviesOnTable}>Delete All Movies From List</button>
+  {/* {document.getElementById("root").style.overflow = "scroll"}
+  {document.getElementById("root").style.position = "relative"}
+  {document.getElementById("root").style.padding = "1%"} */}
+  <div class="modal-body" data-target=".bd-example-modal-lg">
+  <div class="container-fluid">
+    <table className="table table-sm table-striped table-dark table-hover">
+            <thead className="thead-dark" class="col-md-4 ml-auto">
+                <tr height="20px" class="col-md-4 ml-auto">
+                    <th>MOVIE TITLE</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {favMovies.map((favMovie) => (
+                    <tr height="20px" key={uuidv4()}>
+                        <td >{favMovie.Name}</td>
+                        <td>
+                            <button className="btn btn-danger" onClick={() => deleteSingleMovie(favMovie.id)}>
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+  </div>
+  </div>
+        <button className="btn btn-danger" onClick={() => deleteMoviesOnTable()}>Delete All Movies</button>
+  </div> 
     </div>
+
+    
     )
 }
