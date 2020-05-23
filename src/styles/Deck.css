@@ -124,7 +124,7 @@ button[aria-label="next"] {
   background-color:darkred;
   color: white;
 /* } */
-.btn-danger.custom-btn {
+/* .btn-danger.custom-btn {
 	background-color: #000;
   border-color: #000;
   
@@ -133,25 +133,26 @@ button[aria-label="next"] {
   vertical-align: 0px;
   padding-top: -20;
   padding-bottom: -20px;
-} 
+}  */
 
 
 .deleteSingleMovieButton {
-	box-shadow:inset 0px 34px 0px -15px #b54b3a;
-	background-color:#a73f2d;
-	border:1px solid #241d13;
+	box-shadow:inset 0px 34px 0px -15px #270b06;
+	background-color:#1d0e0e;
+	border:1px solid darkred;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	/* font-size:15px;
+	font-weight:bold; */
 	padding:9px 23px;
 	text-decoration:none;
 	text-shadow:0px -1px 0px #7a2a1d;
 }
 .deleteSingleMovieButton:hover {
-  background-color:#b34332;
+  box-shadow:inset 0px 34px 0px -15px #340902;
+  background-color:#380d07;
 }
 .deleteSingleMovieButton:active {
 	position:relative;

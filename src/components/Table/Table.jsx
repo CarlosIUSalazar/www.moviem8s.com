@@ -70,7 +70,7 @@ return (
             <tbody>
                 {favMovies.map((favMovie) => (
                     <tr key={uuidv4()}>
-                        <td >{favMovie.Name}</td>
+                        <td > <img src={favMovie.ImageLink} alt={favMovie.id}/> {favMovie.Name} | {favMovie.Year} | {favMovie.Rating} </td>
                         <td>
                             <button className="deleteSingleMovieButton" onClick={() => deleteSingleMovie(favMovie.id)}>
                                 Delete
@@ -82,7 +82,7 @@ return (
         </table>
   </div>
   </div>
-        <button className="deleteSingleMovieButton" onClick={() => deleteMoviesOnTable()}>Delete All Movies</button>
+        <button className="deleteAllMoviesButton" onClick={() => deleteMoviesOnTable()}>Delete All Movies</button>
   </div> 
     </div>
 
