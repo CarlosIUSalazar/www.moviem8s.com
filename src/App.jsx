@@ -12,6 +12,10 @@ import {LoginProvider} from "./context/LoginState";
 
 
 function App() {
+
+  const bodyElt = document.querySelector("body");
+  bodyElt.style.overflow = "hidden";
+
   if (!firebase.apps.length) {
     firebase.initializeApp(fbInitialization);
  }

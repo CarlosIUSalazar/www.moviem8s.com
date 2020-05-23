@@ -5,22 +5,14 @@ import { firestore } from "firebase";
 import {v4 as uuidv4} from "uuid";
 import "../../styles/FavList.css";
 
-
-
-
-
 export default function FavList(props) {
 
   const db = firebase.firestore();
   const [favMovies, setFavMovies] = React.useState([])
-
-
     const fetchData = async () => {
       const data = await db.collection('RealTable').orderBy('Name').get();
       setFavMovies(data.docs.map((doc) => doc.data()));
     }
- 
-
 
 //Function to add a button that deletes all movies from database and table
   function deleteMoviesOnTable(){
@@ -33,7 +25,6 @@ export default function FavList(props) {
     });
     //setTimeout(function(){ window.location.reload(true); }, 1);
   }
-
 
   function deleteSingleMovie(title){
     let deleteGame = db.collection('RealTable').where('id','==',title);
@@ -58,18 +49,19 @@ export default function FavList(props) {
   return (
   <>
   <button onClick={deleteMoviesOnTable}>Delete All Movies From List</button>
-  <div class="table-sm">
+  {document.querySelector("body").style.overflow = "scroll"}
+  <div className="tableContainer">
     <table className="table table-sm table-striped table-dark table-hover">
-            <thead class="thead-dark">
-                <tr>
+            <thead className="thead-dark">
+                <tr height="20px">
                     <th>MOVIE TITLE</th>
                     <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
                 {favMovies.map((favMovie) => (
-                    <tr key={uuidv4()}>
-                        <td>{favMovie.Name}</td>
+                    <tr height="20px" key={uuidv4()}>
+                        <td >{favMovie.Name}</td>
                         <td>
                             <button className="btn btn-danger" onClick={() => deleteSingleMovie(favMovie.id)}>
                                 Delete
