@@ -68,6 +68,34 @@ button[aria-label="next"] {
   color: black !important;
 }
 
+.MovieName {
+  font-size: 20px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.MovieYear{
+  font-size: 15px;
+  display: inline-block;
+  margin-right: 10px;
+  opacity: 0.7;
+  font-size: 1.35rem;
+}
+
+.MovieRating{
+  font-size: 15px;
+  margin-top: -15px;
+  margin-left: 2px;
+  color: lightgray;
+}
+
+.MoviePlot{
+  font-size: 10px;
+  margin-top: -15px;
+  margin-left: 2px;
+  color: lightgray;
+}
+
 h2 {
   display: inline-block;
   margin-right: 10px;
@@ -86,6 +114,8 @@ h5 {
 h5:last-of-type {
   color: darkgray;
 }
+
+
 
 .card > div {
   height: 380px !important;

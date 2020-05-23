@@ -10,9 +10,9 @@ body {
   }
 
 tableContainer {
-    margin: 20,20,20,20;
-    padding: 100,100,100,100;
+    margin: 200;
+    padding: 100;
     position: relative;
-    width: auto;
-    height: auto;
+    width: 600px;
+    height: 100px;
 }
