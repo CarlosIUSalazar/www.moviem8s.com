@@ -25,7 +25,10 @@ export default function FavList(props) {
 
 
   //fetchData is used to set the state in App.jsx so that the Table updates live without reloading it. Depending where I tried fetchData the behaviour of the App changed. This seems to be a good place for it.
-  props.fetchData();
+  React.useEffect(() => {
+    props.fetchData();
+}, [])
+  
 
   console.log("favMovies state is ", props.favMovies);
   return (
