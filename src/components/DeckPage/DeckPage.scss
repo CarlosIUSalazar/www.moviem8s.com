@@ -54,12 +54,16 @@
 
 @media only screen and (max-width: 480px){
   .deck-card{
-    margin-top: -50px;
+    margin-top: -70px;
     width:90%;
   }
 
+  .adjustPosition{
+    margin-top: 30px;
+  }
+
   .mainLogo{
-    width: 14%;
+    transform: translateY(10px);
   }
 
   .main-title{

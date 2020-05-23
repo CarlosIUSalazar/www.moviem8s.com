@@ -13,7 +13,7 @@ export default function DeckPage({db, fetchData}){
       {console.log("props passed to deckpage", db)}
       {/* <div> */}
         <div className="main-logo">
-          <img src="/MovieM8SLogo.png" className="mainLogo"/>
+          <img src="/MovieM8SLogo.png" className="mainLogo adjustPosition"/>
         </div>
         <div className="main-title">
           <img src="/moviem8s.png" className="fullTitleImage"/>
