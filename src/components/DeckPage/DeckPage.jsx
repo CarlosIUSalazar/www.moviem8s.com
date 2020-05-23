@@ -10,7 +10,7 @@ export default function DeckPage({db, fetchData}){
   //fetchData();
 
   return (
-    <div>
+    <div class="deckContainer">
       {console.log("props passed to deckpage", db)}
       <Link to={"/favorite-movies"}>
         <button className="fav-button">My Favorite Lists</button>

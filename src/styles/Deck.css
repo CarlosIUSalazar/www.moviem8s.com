@@ -11,12 +11,13 @@ body {
   width: 100%;
   user-select: none;
   font-family: Raleway, sans-serif;
-  position: fixed; 
-  overflow: hidden;
+  /* position: fixed; 
+  overflow: hidden; */
 }
 
-#root {
+/* .deckContainer was originally #root */
 
+.deckContainer {
   background: #ED213A;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -30,7 +31,7 @@ body {
     auto;
 }
 
-#root > div > div {
+.deckContainer > div > div {
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -40,7 +41,7 @@ body {
   justify-content: center;
 }
 
-#root > div > div > div {
+.deckContainer > div > div > div {
   padding: 5px;
   background-color: white;
   background-size: auto 85%;
@@ -54,6 +55,15 @@ body {
   border-radius: 10px;
   box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
     0 10px 10px -10px rgba(50, 50, 73, 0.3);
+}
+
+/* NEW CONTAINER TO HELP RESIZE TABLE */
+.favTableContainer{
+  background: #ED213A;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  overflow: scroll;
+  position: relative;
 }
 
 img {

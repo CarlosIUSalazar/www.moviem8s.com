@@ -22,6 +22,10 @@ export default function FavList(props) {
       res.forEach(element => {
         element.ref.delete();
       });
+      setTimeout(() => {
+        alert("Movies deleted successfully")
+            window.location.reload(false);
+        }, 400); 
     });
     //setTimeout(function(){ window.location.reload(true); }, 1);
   }
@@ -34,7 +38,7 @@ export default function FavList(props) {
       });
       setTimeout(() => {
     alert("Movie deleted successfully")
-        //window.location.reload(false);
+        window.location.reload(false);
     }, 400); 
     });
   }
@@ -47,13 +51,16 @@ export default function FavList(props) {
 
   console.log("favMovies state is ", props.favMovies);
   return (
-  <>
+  <div class="favTableContainer">
   <button onClick={deleteMoviesOnTable}>Delete All Movies From List</button>
-  {/* {document.querySelector("body").style.overflow = "scroll"} */}
-  <div className="tableContainer">
+  {/* {document.getElementById("root").style.overflow = "scroll"}
+  {document.getElementById("root").style.position = "relative"}
+  {document.getElementById("root").style.padding = "1%"} */}
+  <div class="modal-body" data-target=".bd-example-modal-lg">
+  <div class="container-fluid">
     <table className="table table-sm table-striped table-dark table-hover">
-            <thead className="thead-dark">
-                <tr height="20px">
+            <thead className="thead-dark" class="col-md-4 ml-auto">
+                <tr height="20px" class="col-md-4 ml-auto">
                     <th>MOVIE TITLE</th>
                     <th>Delete</th>
                 </tr>
@@ -72,8 +79,9 @@ export default function FavList(props) {
             </tbody>
         </table>
   </div>
+  </div>
         <button className="btn btn-danger" onClick={() => deleteMoviesOnTable()}>Delete All Movies</button>
-  </> 
+  </div> 
   );
 }
 
