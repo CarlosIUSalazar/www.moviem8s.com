@@ -10,13 +10,16 @@ export default function DeckPage({db, fetchData}){
   
   return (
   <>
-  <div className="fullLogoImageContainer">
-    <img className="fullLogoImage" src="https://nes-box-art-library.s3-ap-northeast-1.amazonaws.com/MovieM8SFullLogo.png" alt="Logoimage" />
-    </div>  
+ 
     <div class="deckContainer">
       {console.log("props passed to deckpage", db)}
+ 
       <Link to={"/favorite-movies"}>
-        <button className="fav-button">My Favorite Lists</button>
+      <div className="fullLogoImageContainer">
+    <img className="fullLogoImage" src="https://nes-box-art-library.s3-ap-northeast-1.amazonaws.com/MovieM8SFullLogo.png" alt="Logoimage" />
+    <button className="fav-button">My Favorite Lists</button>
+    </div> 
+        
       </Link>
       <Deck db={db} fetchData={fetchData}/>
     </div>

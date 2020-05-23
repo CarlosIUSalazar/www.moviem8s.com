@@ -19,12 +19,22 @@ body {
   user-select: none;
   font-family: Raleway, sans-serif;
   position: fixed; 
-  overflow: scroll;
+  /* overflow: scroll; */
 
   background: #ED213A;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   
+}
+
+main {
+  overflow: scroll; 
+  position: relative;
+  color: yellowgreen;
+  padding: 1%;
+  padding-bottom: 50%;
+  margin-bottom: 110px;
+  height: 1500px;
 }
 
 /* .deckContainer was originally #root */
@@ -35,7 +45,7 @@ body {
   background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   
   position: fixed;
-  overflow: hidden;
+  /* overflow: scroll; */
   width: 100%;
   height: 100%;
   cursor: url("https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png")
@@ -44,6 +54,7 @@ body {
 }
 
 .deckContainer > div > div {
+  overflow: scroll;
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -54,6 +65,7 @@ body {
 }
 
 .deckContainer > div > div > div {
+  overflow: scroll;
   padding: 5px;
   background-color: white;
   background-size: auto 85%;
@@ -67,6 +79,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
     0 10px 10px -10px rgba(50, 50, 73, 0.3);
+    
 }
 
 /* NEW CONTAINER TO HELP RESIZE TABLE */
@@ -75,7 +88,7 @@ body {
   background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   overflow: scroll;
-  position: relative;
+  position: static;
 }
 
 img {

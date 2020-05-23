@@ -50,33 +50,31 @@ React.useEffect(() => {
   fetchData();
 }, [])
 
-
 return (
-<div>
- <div className="fullLogoImageContainer">
-    <img className="fullLogoImage" src="https://nes-box-art-library.s3-ap-northeast-1.amazonaws.com/MovieM8SFullLogo.png" alt="Logoimage" />
-  </div> 
-  <div className="favTableContainer">
-      {/* {document.getElementById("root").style.overflow = "scroll"} */}
-      {/* <FavList db={props.db}/> */}
-  <div className="favTableContainer">
+<>
   <Link to={"/deck"} >
-        <button className="deleteSingleMovieButton" >Go back to decks</button>
-      </Link>
-  {/* {document.getElementById("root").style.overflow = "scroll"}*/}
-  <div className="modal-body" data-target=".bd-example-modal-lg">
-  <div className="container-fluid">
-    <table className="table table-sm table-striped table-dark table-hover">
+  <div className="fullLogoImageContainer" >
+  <img className="fullLogoImage" src="https://nes-box-art-library.s3-ap-northeast-1.amazonaws.com/MovieM8SFullLogo.png" alt="Logoimage" />
+
+        <button  className="deleteSingleMovieButton" >Go back to decks</button>
+        </div>
+  </Link>
+<main style={{overflow : "scroll"}}>
+  <div className="favTableContainer" style={{overflow : "scroll"}}>
+
+  {/* <div className="modal-body" data-target=".bd-example-modal-lg"> */}
+  <div className="container-fluid" style={{overflow : "scroll"}}>
+    <table style={{overflow : "scroll"}} className="table table-sm table-striped table-dark table-hover">
             <thead className="thead-dark" className="col-md-4 ml-auto">
                 <tr height="20px" className="col-md-4 ml-auto">
                     <th>MOVIE TITLE</th>
                     <th>Delete</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody style={{overflow : "scroll"}}>
                 {favMovies.map((favMovie) => (
                     <tr key={uuidv4()}>
-                        <td > <img src={favMovie.ImageLink} alt={favMovie.id}/> {favMovie.Name} | {favMovie.Year} | {favMovie.Rating} </td>
+                        <td style={{overflow : "scroll"}}> <img src={favMovie.ImageLink} alt={favMovie.id}/> {favMovie.Name} | {favMovie.Year} | {favMovie.Rating} </td>
                         <td>
                             <button className="deleteSingleMovieButton" onClick={() => deleteSingleMovie(favMovie.id)}>
                                 Delete
@@ -88,12 +86,11 @@ return (
         </table>
   </div>
   </div>
+
   <div className="deleteAllMoviesButtonContainer">
         <button className="deleteAllMoviesButton" onClick={() => deleteMoviesOnTable()}>Delete All Movies</button>
   </div>
-  </div> 
-    </div>
-</div> 
-    
+    </main>
+    </>
     )
 }
