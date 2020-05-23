@@ -21,6 +21,11 @@
   transform: translateY(-90px)
 }
 
+.mainLogo{
+  width: 7%;
+  height: 7%;
+}
+
 .fav-button:hover {
   box-shadow:inset 0px 34px 0px -15px #340902;
   background-color:#380d07;
@@ -33,7 +38,7 @@
 
 .fullLogoImageContainer{
   position: absolute;
-  top: 90px;
+  top: 115px;
   right: 20px;
 
   z-index: 999999;
@@ -45,4 +50,35 @@
 
 .deck-card{
   margin-top: -190px;
+}
+
+@media only screen and (max-width: 480px){
+  .deck-card{
+    margin-top: -50px;
+    width:90%;
+  }
+
+  .mainLogo{
+    width: 14%;
+  }
+
+  .main-title{
+    text-align: center;
+    visibility: hidden;
+    transform: translate(-95px,-23px)
+  }
+
+  .fav-button{
+    box-shadow:inset 0px 34px 0px -15px #270b06;
+    background-color:#1d0e0e;
+    border:1px solid darkred;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding:10px 20px;
+    text-decoration:none;
+    text-shadow:0px -1px 0px #7a2a1d;
+    transform: translate(18px,-32px)
+  }
 }

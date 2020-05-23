@@ -35,7 +35,7 @@ main {
   margin-bottom: 110px;
   height: 1500px;
 
-  transform: translateY(120px);
+  transform: translateY(140px);
 }
 
 /* .deckContainer was originally #root */
@@ -81,7 +81,6 @@ main {
   border-radius: 10px;
   box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
     0 10px 10px -10px rgba(50, 50, 73, 0.3);
-    
 }
 
 /* NEW CONTAINER TO HELP RESIZE TABLE */
@@ -235,4 +234,9 @@ h5:last-of-type {
 
 .slider-control-bottomcenter > ul > li > button {
   color: salmon !important;
+}
+
+
+@media only screen and (max-width: 480px){
+
 }
