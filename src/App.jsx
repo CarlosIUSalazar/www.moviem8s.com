@@ -43,12 +43,13 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={LoginPage}/>
-          <Route exact path="/deck"
-          render={(props) => <DeckPage {...props} db={fbConfig} />}
-          />
           <Route exact path="/favorite-movies"
             render={(props) => <Table {...props} db={fbConfig} />}
           />
+          <Route exact path="/deck"
+          render={(props) => <DeckPage {...props} db={fbConfig} />}
+          />
+
         </Switch>
       </Router>
     </LoginProvider>

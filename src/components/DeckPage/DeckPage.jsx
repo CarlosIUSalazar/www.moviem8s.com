@@ -7,8 +7,6 @@ import "./DeckPage.css";
 
 export default function DeckPage({db, fetchData}){
   
-  //fetchData();
-
   return (
     <div class="deckContainer">
       {console.log("props passed to deckpage", db)}

@@ -2,7 +2,8 @@ import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import firebase from "firebase";
 import FavList from "../FavList";
-import "../../styles/FavList.css";
+// import "../../styles/FavList.css";
+import "../../styles/Deck.css";
 import {v4 as uuidv4} from "uuid";
 export default function Table(props){
 
@@ -49,10 +50,10 @@ React.useEffect(() => {
 
 
 return (
-      <div class="favTableContainer">
-
+      <div className="favTableContainer">
+      {document.getElementById("root").style.overflow = "scroll"}
       {/* <FavList db={props.db}/> */}
-  <div class="favTableContainer">
+  <div className="favTableContainer">
   <Link to={"/deck"} >
         <button>Go back to decks</button>
       </Link>
@@ -60,11 +61,11 @@ return (
   {/* {document.getElementById("root").style.overflow = "scroll"}
   {document.getElementById("root").style.position = "relative"}
   {document.getElementById("root").style.padding = "1%"} */}
-  <div class="modal-body" data-target=".bd-example-modal-lg">
-  <div class="container-fluid">
+  <div className="modal-body" data-target=".bd-example-modal-lg">
+  <div className="container-fluid">
     <table className="table table-sm table-striped table-dark table-hover">
-            <thead className="thead-dark" class="col-md-4 ml-auto">
-                <tr height="20px" class="col-md-4 ml-auto">
+            <thead className="thead-dark" className="col-md-4 ml-auto">
+                <tr height="20px" className="col-md-4 ml-auto">
                     <th>MOVIE TITLE</th>
                     <th>Delete</th>
                 </tr>

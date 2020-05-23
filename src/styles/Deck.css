@@ -11,8 +11,8 @@ body {
   width: 100%;
   user-select: none;
   font-family: Raleway, sans-serif;
-  /* position: fixed; 
-  overflow: hidden; */
+  position: fixed; 
+  overflow: scroll;
 }
 
 /* .deckContainer was originally #root */
