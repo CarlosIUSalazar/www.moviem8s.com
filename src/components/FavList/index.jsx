@@ -49,7 +49,7 @@ export default function FavList(props) {
   return (
   <>
   <button onClick={deleteMoviesOnTable}>Delete All Movies From List</button>
-  {document.querySelector("body").style.overflow = "scroll"}
+  {/* {document.querySelector("body").style.overflow = "scroll"} */}
   <div className="tableContainer">
     <table className="table table-sm table-striped table-dark table-hover">
             <thead className="thead-dark">

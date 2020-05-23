@@ -30,7 +30,6 @@ const Card = ({ i, x, y, rot, scale, trans, bind, data }) => {
           <h5>{rating}</h5>
           <h5>{plot}</h5> */}
           <span><p className="MovieName">{name},</p> <p className="MovieYear">{year}</p></span>
-         
           <p className="MovieRating">{rating}</p>
           <p className="MoviePlot">{plot}</p>
         </div>

@@ -62,11 +62,13 @@ img {
   border-top-right-radius: 10px;
 }
 
+/* REENABLE VISIBILITY THIS TO ADD THE LITTLE NEXT BUTTONS ON TOP OF EACH CARD TO DISPLAY MORE THAN ONE PHOTO" */
 button[aria-label="previous"],
 button[aria-label="next"] {
+  visibility: hidden;
   background: salmon !important;
   color: black !important;
-}
+} 
 
 .MovieName {
   font-size: 20px;
@@ -114,8 +116,6 @@ h5 {
 h5:last-of-type {
   color: darkgray;
 }
-
-
 
 .card > div {
   height: 380px !important;
