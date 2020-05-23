@@ -1,7 +1,28 @@
 .fav-button{
-  position: absolute;
+  /* position: absolute;
   top: 30px;
   right: 50px;
+  z-index: 9999; */
 
-  z-index: 9999;
+
+  float: right;
+  box-shadow:inset 0px 34px 0px -15px #270b06;
+	background-color:#1d0e0e;
+	border:1px solid darkred;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #7a2a1d;
 }
+.fav-button:hover {
+  box-shadow:inset 0px 34px 0px -15px #340902;
+  background-color:#380d07;
+}
+.fav-button:active {
+	position:relative;
+	top:1px;
+} 

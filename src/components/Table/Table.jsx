@@ -82,7 +82,9 @@ return (
         </table>
   </div>
   </div>
+  <div className="deleteAllMoviesButtonContainer">
         <button className="deleteAllMoviesButton" onClick={() => deleteMoviesOnTable()}>Delete All Movies</button>
+  </div>
   </div> 
     </div>
 

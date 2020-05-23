@@ -160,7 +160,34 @@ button[aria-label="next"] {
 }
 
 
+.deleteAllMoviesButtonContainer{
+  display: flex; justify-content: center;
+}
 
+
+.deleteAllMoviesButton {
+  
+  box-shadow:inset 0px 34px 0px -15px darkred;
+  background-color: darkred;
+	border:1 solid black;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	/* font-size:15px;
+	font-weight:bold; */
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #7a2a1d;
+}
+.deleteSingleMovieButton:hover {
+  box-shadow:inset 0px 34px 0px -15px #340902;
+  background-color:#380d07;
+}
+.deleteSingleMovieButton:active {
+	position:relative;
+	top:1px;
+}
 
 
 h2 {

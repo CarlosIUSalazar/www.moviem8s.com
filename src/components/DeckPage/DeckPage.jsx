@@ -1,5 +1,5 @@
 import React from "react";
-
+import "../../styles/Deck.css";
 import Deck from "../Deck/Deck";
 import { Link } from "react-router-dom";
 
