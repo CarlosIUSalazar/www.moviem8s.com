@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import firebase from "firebase";
 import FavList from "../FavList";
-// import "../../styles/FavList.css";
+import "../../styles/FavList.css";
 import "../../styles/Deck.css";
 import {v4 as uuidv4} from "uuid";
 export default function Table(props){
@@ -50,17 +50,14 @@ React.useEffect(() => {
 
 
 return (
-  <div className="favTableContainer">
-  {document.getElementById("root").style.overflow = "scroll"}
+      <div className="favTableContainer">
+      {/* {document.getElementById("root").style.overflow = "scroll"} */}
       {/* <FavList db={props.db}/> */}
   <div className="favTableContainer">
   <Link to={"/deck"} >
         <button>Go back to decks</button>
       </Link>
-  <button onClick={deleteMoviesOnTable}>Delete All Movies From List</button>
-  {/* {document.getElementById("root").style.overflow = "scroll"}
-  {document.getElementById("root").style.position = "relative"}
-  {document.getElementById("root").style.padding = "1%"} */}
+  {/* {document.getElementById("root").style.overflow = "scroll"}*/}
   <div className="modal-body" data-target=".bd-example-modal-lg">
   <div className="container-fluid">
     <table className="table table-sm table-striped table-dark table-hover">
@@ -72,10 +69,10 @@ return (
             </thead>
             <tbody>
                 {favMovies.map((favMovie) => (
-                    <tr height="20px" key={uuidv4()}>
+                    <tr key={uuidv4()}>
                         <td >{favMovie.Name}</td>
                         <td>
-                            <button  onClick={() => deleteSingleMovie(favMovie.id)}>
+                            <button className="deleteSingleMovieButton" onClick={() => deleteSingleMovie(favMovie.id)}>
                                 Delete
                             </button>
                         </td>
