@@ -5,6 +5,8 @@ import FavList from "../FavList";
 import "../../styles/FavList.css";
 import "../../styles/Deck.css";
 import {v4 as uuidv4} from "uuid";
+import "../../styles/AppLogo.css"
+
 export default function Table(props){
 
   const db = firebase.firestore();
@@ -50,7 +52,11 @@ React.useEffect(() => {
 
 
 return (
-      <div className="favTableContainer">
+<div>
+ <div className="fullLogoImageContainer">
+    <img className="fullLogoImage" src="https://nes-box-art-library.s3-ap-northeast-1.amazonaws.com/MovieM8SFullLogo.png" alt="Logoimage" />
+  </div> 
+  <div className="favTableContainer">
       {/* {document.getElementById("root").style.overflow = "scroll"} */}
       {/* <FavList db={props.db}/> */}
   <div className="favTableContainer">
@@ -87,7 +93,7 @@ return (
   </div>
   </div> 
     </div>
-
+</div> 
     
     )
 }

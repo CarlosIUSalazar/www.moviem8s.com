@@ -1,0 +1,9 @@
+.fullLogoImage{
+    
+    width: 30%;
+    height: auto;
+}
+
+.fullLogoImageContainer{
+    display: flex; justify-content: center;
+}

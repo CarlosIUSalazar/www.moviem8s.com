@@ -2,7 +2,6 @@ import React from "react";
 import LoginPage from "./components/LoginPage/LoginPage";
 import DeckPage from "./components/DeckPage/DeckPage";
 import Table from "./components/Table/Table";
-
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import firebase from "firebase";
@@ -39,6 +38,7 @@ function App() {
 
 /////
   return (
+    <>
     <LoginProvider>
       <Router>
         <Switch>
@@ -53,6 +53,7 @@ function App() {
         </Switch>
       </Router>
     </LoginProvider>
+    </>
   );
 }
 
