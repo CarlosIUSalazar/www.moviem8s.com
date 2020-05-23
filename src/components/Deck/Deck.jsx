@@ -44,10 +44,6 @@ const trans = (r, s) =>
 
 
 export default function Deck({db}) {
-//   useEffect(() => {
-//    setTimeout(function(){ window.location.reload(true); }, 1);
-//  },[])
-
   const {loginUser, isUserLoggedIn} = useContext(LoginContext);
   console.log("GOT IT?????", loginUser)
   console.log("HOW ABOUT THIS?????", isUserLoggedIn)
@@ -135,7 +131,7 @@ export default function Deck({db}) {
         //Save to Database When Swipe Right
         console.log("Final value of swipeRight = ", swipeRight)
         console.log("SelectedMovieName", selectedMovie.name)
-        
+
         if (isGone === true && swipeRight === true){
         db
         .collection("RealTable")
@@ -159,8 +155,7 @@ export default function Deck({db}) {
         });
 
       }
-      
-              //// THIS SENDS BACK THE ADDED CARD TO THE STATE ALL THE WAY BACK IN APP.JSX SO IT CAN
+        //// THIS SENDS BACK THE ADDED CARD TO THE STATE ALL THE WAY BACK IN APP.JSX SO IT CAN
         // BE DISPLAYED REAL TIME IN THE TABLE WITHOUT RELOADING.
         //fetchData()
         ///

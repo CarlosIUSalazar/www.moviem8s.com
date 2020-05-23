@@ -4,8 +4,6 @@
   right: 50px;
   z-index: 9999; */
 
-
-  float: right;
   box-shadow:inset 0px 34px 0px -15px #270b06;
 	background-color:#1d0e0e;
 	border:1px solid darkred;
@@ -13,16 +11,38 @@
 	cursor:pointer;
 	color:#ffffff;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
-
-	padding:9px 23px;
+	padding:20px 34px;
 	text-decoration:none;
 	text-shadow:0px -1px 0px #7a2a1d;
 }
+
+.main-title{
+  text-align: center;
+  transform: translateY(-90px)
+}
+
 .fav-button:hover {
   box-shadow:inset 0px 34px 0px -15px #340902;
   background-color:#380d07;
 }
+
 .fav-button:active {
 	position:relative;
 	top:1px;
-} 
+}
+
+.fullLogoImageContainer{
+  position: absolute;
+  top: 90px;
+  right: 20px;
+
+  z-index: 999999;
+}
+
+.header{
+  // display: flex;
+}
+
+.deck-card{
+  margin-top: -190px;
+}

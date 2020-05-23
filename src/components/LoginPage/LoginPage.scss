@@ -25,6 +25,7 @@
 }
 
 .title-wrapper{
+  transform: translateY(30px);
   &__main-title{
     width: 40%;
     height: 40%;
@@ -32,7 +33,7 @@
 }
 
 .logo-wrapper{
-  // transform: translateY(200px);
+  transform: translate(-760px, -60px);
   // position: absolute;
   top:0;
   left:0;
@@ -46,6 +47,7 @@
 
 @media only screen and (max-width: 480px){
   .logo-wrapper{
+    transform: translate(0, 15px);
     display: inline-block;
     &__main-logo{
       width: 150px;
@@ -54,7 +56,7 @@
   }
 
   .title-wrapper{
-    transform: translateY(20px);
+    transform: translateY(10px);
     display: inline-block;
     &__main-title{
       width: 250px;

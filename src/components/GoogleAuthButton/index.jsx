@@ -24,7 +24,7 @@ export default function GoogleAuthButton(){
 
   useEffect(() => {
     if(loginState){
-      setTimeout(() => history.push("/deck"),1000)
+      setTimeout(() => history.push("/deck"), 1000)
     }
   }, [loginState])
 
@@ -35,8 +35,6 @@ export default function GoogleAuthButton(){
       toggleLoginState();
       setLoginState(true);
     });
-
-    // setTimeout(() => history.push("/deck"),3000)
   };
   return(
     <div >

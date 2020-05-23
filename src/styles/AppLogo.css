@@ -1,9 +1,9 @@
-.fullLogoImage{
-    
-    width: 30%;
-    height: auto;
+.fullTitleImage{
+  width: 30%;
+  height: auto;
 }
 
-.fullLogoImageContainer{
-    display: flex; justify-content: center;
+.mainLogo{
+  width: 7%;
+  height: 7%;
 }
