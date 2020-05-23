@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
+
+import firebase from "firebase";
 import FavList from "../FavList";
 
 // function renderFavMoviesRow(doc){
@@ -30,7 +32,7 @@ return (
       <Link to={"/deck"} >
         <button>Go back to decks</button>
       </Link>
-      <FavList db={props.db} favMovies={props.favMovies} fetchData={props.fetchData}/>
+      <FavList db={props.db}/>
     </div>
     )
 }

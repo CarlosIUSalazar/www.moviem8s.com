@@ -1,6 +1,5 @@
 //https://codesandbox.io/embed/j0y0vpz59   Example
 import React, { useState, useContext, useEffect } from "react";
-
 import Card from "../Card/Card";
 import {LoginContext} from "../../context/LoginState";
 import data from "../../data.js";
@@ -8,8 +7,9 @@ import randomMovies from "../../randomMovies.js";
 
 import { useSprings } from "react-spring/hooks";
 import { useGesture } from "react-with-gesture";
-
 import "../../styles/Deck.css";
+
+import {v4 as uuidv4} from "uuid";
 
 ///Attempt to generate 5 random cards ///
 function shuffleNewMovieDeck() {
@@ -43,7 +43,7 @@ const trans = (r, s) =>
     10}deg) rotateZ(${r}deg) scale(${s})`;
 
 
-export default function Deck({db, fetchData}) {
+export default function Deck({db}) {
 //   useEffect(() => {
 //    setTimeout(function(){ window.location.reload(true); }, 1);
 //  },[])
@@ -148,7 +148,8 @@ export default function Deck({db, fetchData}) {
           ImageLink: selectedMovie.pics[0],
           Year: selectedMovie.year,
           Rating: selectedMovie.rating,
-          Plot: selectedMovie.plot
+          Plot: selectedMovie.plot,
+          id: uuidv4()
         })
         .then(function (docRef) {
           console.log("Documentwritten with ID: ", docRef.id);

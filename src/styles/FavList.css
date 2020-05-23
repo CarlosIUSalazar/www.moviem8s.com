@@ -1,14 +1,14 @@
-.tableclass{
+/* .tableclass{
     display: flex;
    
     text-align: center;
     justify-content: center;
-    /* font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; */
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* border-collapse: collapse; */
+    border-collapse: collapse;
     width: auto;
-}
-
+} */
+/* 
 .tablebodyclass{
     background-color: darkred;
 }
@@ -18,5 +18,8 @@
 }
 
 .tdtableclass{
-    /* background-color: gray; */
-}
+    /* background-color: gray; 
+}    
+*/
+ 
+

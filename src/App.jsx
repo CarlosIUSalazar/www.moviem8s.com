@@ -17,21 +17,21 @@ function App() {
  }
   
   const fbConfig = firebase.firestore();
-  const [favMovies, setFavMovies] = React.useState([])
+  // const [favMovies, setFavMovies] = React.useState([])
 
-  React.useEffect(() => {
-    const fetchData = async () => {
-    const data = await fbConfig.collection("RealTable").get()
-    setFavMovies(data.docs.map(doc => doc.data()))
-    }
-    fetchData()
-  },[])
+  // React.useEffect(() => {
+  //   const fetchData = async () => {
+  //   const data = await fbConfig.collection("RealTable").get()
+  //   setFavMovies(data.docs.map(doc => doc.data()))
+  //   }
+  //   fetchData()
+  // },[])
 
 /////
-const fetchData = async () => {
-  const data = await fbConfig.collection("RealTable").orderBy('Name').get()
-  setFavMovies(data.docs.map(doc => doc.data()))
-}
+// const fetchData = async () => {
+//   const data = await fbConfig.collection("RealTable").orderBy('Name').get()
+//   setFavMovies(data.docs.map(doc => doc.data()))
+// }
 
 /////
   return (
@@ -40,10 +40,10 @@ const fetchData = async () => {
         <Switch>
           <Route exact path="/" component={LoginPage}/>
           <Route exact path="/deck"
-          render={(props) => <DeckPage {...props} db={fbConfig} fetchData={fetchData}/>}
+          render={(props) => <DeckPage {...props} db={fbConfig} />}
           />
           <Route exact path="/favorite-movies"
-            render={(props) => <Table {...props} db={fbConfig} favMovies={favMovies} fetchData={fetchData}/>}
+            render={(props) => <Table {...props} db={fbConfig} />}
           />
         </Switch>
       </Router>

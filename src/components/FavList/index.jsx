@@ -2,7 +2,7 @@ import React from "react";
 import firebase from "firebase";
 import firebaseConfig from "../../fbInitialization";
 import { firestore } from "firebase";
-
+import {v4 as uuidv4} from "uuid";
 import "../../styles/FavList.css";
 
 
@@ -11,9 +11,20 @@ import "../../styles/FavList.css";
 
 export default function FavList(props) {
 
+  const db = firebase.firestore();
+  const [favMovies, setFavMovies] = React.useState([])
+
+
+    const fetchData = async () => {
+      const data = await db.collection('RealTable').orderBy('Name').get();
+      setFavMovies(data.docs.map((doc) => doc.data()));
+    }
+ 
+
+
 //Function to add a button that deletes all movies from database and table
   function deleteMoviesOnTable(){
-    props.db.collection("RealTable")
+    db.collection("RealTable")
     .get()
     .then(res => {
       res.forEach(element => {
@@ -24,18 +35,60 @@ export default function FavList(props) {
   }
 
 
+  function deleteSingleMovie(title){
+    let deleteGame = db.collection('RealTable').where('id','==',title);
+    deleteGame.get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        doc.ref.delete();
+      });
+      setTimeout(() => {
+    alert("Movie deleted successfully")
+        //window.location.reload(false);
+    }, 400); 
+    });
+  }
+
   //fetchData is used to set the state in App.jsx so that the Table updates live without reloading it. Depending where I tried fetchData the behaviour of the App changed. This seems to be a good place for it.
   React.useEffect(() => {
-    props.fetchData();
+    fetchData();
 }, [])
   
 
   console.log("favMovies state is ", props.favMovies);
   return (
-  <div>  
-    <button onClick={deleteMoviesOnTable}>Delete All Movies From List</button>
-  
-    <table className="tableclass">
+  <>
+  <button onClick={deleteMoviesOnTable}>Delete All Movies From List</button>
+  <div class="table-sm">
+    <table className="table table-sm table-striped table-dark table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>MOVIE TITLE</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {favMovies.map((favMovie) => (
+                    <tr key={uuidv4()}>
+                        <td>{favMovie.Name}</td>
+                        <td>
+                            <button className="btn btn-danger" onClick={() => deleteSingleMovie(favMovie.id)}>
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+  </div>
+        <button className="btn btn-danger" onClick={() => deleteMoviesOnTable()}>Delete All Movies</button>
+  </> 
+  );
+}
+
+
+
+
+{/* <table className="tableclass">
       <tbody className="tablebodyclass">
         <thead>
         <tr>
@@ -61,10 +114,14 @@ export default function FavList(props) {
               </div>
         ))}
       </tbody>
-    </table>
-  </div>  
-  );
-}
+    </table> */}
+
+
+
+
+
+
+
 
 // return (
 //   <ul>
