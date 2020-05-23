@@ -50,8 +50,8 @@ React.useEffect(() => {
 
 
 return (
-      <div className="favTableContainer">
-      {document.getElementById("root").style.overflow = "scroll"}
+  <div className="favTableContainer">
+  {document.getElementById("root").style.overflow = "scroll"}
       {/* <FavList db={props.db}/> */}
   <div className="favTableContainer">
   <Link to={"/deck"} >
@@ -75,7 +75,7 @@ return (
                     <tr height="20px" key={uuidv4()}>
                         <td >{favMovie.Name}</td>
                         <td>
-                            <button className="btn btn-danger" onClick={() => deleteSingleMovie(favMovie.id)}>
+                            <button  onClick={() => deleteSingleMovie(favMovie.id)}>
                                 Delete
                             </button>
                         </td>
