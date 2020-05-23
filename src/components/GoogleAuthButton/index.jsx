@@ -24,7 +24,7 @@ export default function GoogleAuthButton(){
 
   useEffect(() => {
     if(loginState){
-      setTimeout(() => history.push("/deck"),3000)
+      setTimeout(() => history.push("/deck"),1000)
     }
   }, [loginState])
 
@@ -39,7 +39,6 @@ export default function GoogleAuthButton(){
     // setTimeout(() => history.push("/deck"),3000)
   };
   return(
-  
     <div >
       <article className="btn">
         <div className="btn__neon" onClick={onSignInClick}>Google Login</div>

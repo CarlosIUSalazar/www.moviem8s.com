@@ -7,7 +7,7 @@ import randomMovies from "../../randomMovies.js";
 
 import { useSprings } from "react-spring/hooks";
 import { useGesture } from "react-with-gesture";
-import "../../styles/Deck.css";
+import "./Deck.css";
 
 import {v4 as uuidv4} from "uuid";
 

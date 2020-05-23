@@ -12,6 +12,8 @@
   align-items: center;
   justify-content: center;
   padding-top: 50px;
+
+  position: relative;
 }
 
 .main-title{
@@ -19,5 +21,44 @@
     padding-top: 10rem;
     width: 50%;
     height: 30%;
+  }
+}
+
+.title-wrapper{
+  &__main-title{
+    width: 40%;
+    height: 40%;
+  }
+}
+
+.logo-wrapper{
+  // transform: translateY(200px);
+  // position: absolute;
+  top:0;
+  left:0;
+  &__main-logo{
+    width: 10%;
+    height: 10%;
+  }
+}
+
+/*Small phones from :0 - 480px*/
+
+@media only screen and (max-width: 480px){
+  .logo-wrapper{
+    display: inline-block;
+    &__main-logo{
+      width: 150px;
+      height: 150px;
+    }
+  }
+
+  .title-wrapper{
+    transform: translateY(25px);
+    display: inline-block;
+    &__main-title{
+      width: 250px;
+      height: 70px;
+    }
   }
 }

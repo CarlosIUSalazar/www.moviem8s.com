@@ -17,26 +17,10 @@ function App() {
 
   if (!firebase.apps.length) {
     firebase.initializeApp(fbInitialization);
- }
-  
+}
+
   const fbConfig = firebase.firestore();
-  // const [favMovies, setFavMovies] = React.useState([])
 
-  // React.useEffect(() => {
-  //   const fetchData = async () => {
-  //   const data = await fbConfig.collection("RealTable").get()
-  //   setFavMovies(data.docs.map(doc => doc.data()))
-  //   }
-  //   fetchData()
-  // },[])
-
-/////
-// const fetchData = async () => {
-//   const data = await fbConfig.collection("RealTable").orderBy('Name').get()
-//   setFavMovies(data.docs.map(doc => doc.data()))
-// }
-
-/////
   return (
     <>
     <LoginProvider>
@@ -49,7 +33,6 @@ function App() {
           <Route exact path="/deck"
           render={(props) => <DeckPage {...props} db={fbConfig} />}
           />
-
         </Switch>
       </Router>
     </LoginProvider>

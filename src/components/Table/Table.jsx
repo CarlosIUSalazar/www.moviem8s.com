@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import firebase from "firebase";
 import FavList from "../FavList";
 import "../../styles/FavList.css";
-import "../../styles/Deck.css";
+import "../Deck/Deck.css";
 import {v4 as uuidv4} from "uuid";
 import "../../styles/AppLogo.css"
 
