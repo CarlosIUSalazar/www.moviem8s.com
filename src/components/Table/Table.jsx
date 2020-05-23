@@ -55,7 +55,7 @@ return (
       {/* <FavList db={props.db}/> */}
   <div className="favTableContainer">
   <Link to={"/deck"} >
-        <button>Go back to decks</button>
+        <button className="deleteSingleMovieButton" >Go back to decks</button>
       </Link>
   {/* {document.getElementById("root").style.overflow = "scroll"}*/}
   <div className="modal-body" data-target=".bd-example-modal-lg">
@@ -82,7 +82,7 @@ return (
         </table>
   </div>
   </div>
-        <button className="btn btn-danger" onClick={() => deleteMoviesOnTable()}>Delete All Movies</button>
+        <button className="deleteSingleMovieButton" onClick={() => deleteMoviesOnTable()}>Delete All Movies</button>
   </div> 
     </div>
 
