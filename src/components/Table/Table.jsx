@@ -35,7 +35,7 @@ export default function Table(props){
   }
 
   function deleteSingleMovie(title){
-  let deleteGame = db.collection('RealTable').where('id','==',title);
+  let deleteGame = db.collection('RealTable').where('Name','==',title);
   deleteGame.get().then(function(querySnapshot) {
     querySnapshot.forEach(function(doc) {
       doc.ref.delete();
@@ -82,7 +82,7 @@ export default function Table(props){
                   <tr key={uuidv4()}>
                     <td style={{overflow : "scroll"}}> <img src={favMovie.ImageLink} alt={favMovie.id}/> {favMovie.Name} | {favMovie.Year} | {favMovie.Rating} </td>
                     <td>
-                      <button className="deleteSingleMovieButton" onClick={() => deleteSingleMovie(favMovie.id)}>
+                      <button className="deleteSingleMovieButton" onClick={() => deleteSingleMovie(favMovie.Name)}>
                         Delete
                       </button>
                     </td>

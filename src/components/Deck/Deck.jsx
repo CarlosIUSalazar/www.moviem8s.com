@@ -9,7 +9,7 @@ import { useSprings } from "react-spring/hooks";
 import { useGesture } from "react-with-gesture";
 import "./Deck.css";
 
-import {v4 as uuidv4} from "uuid";
+// import {v4 as uuidv4} from "uuid";
 
 ///Attempt to generate 5 random cards ///
 function shuffleNewMovieDeck() {
@@ -45,8 +45,8 @@ const trans = (r, s) =>
 
 export default function Deck({db}) {
   const {loginUser, isUserLoggedIn} = useContext(LoginContext);
-  console.log("GOT IT?????", loginUser)
-  console.log("HOW ABOUT THIS?????", isUserLoggedIn)
+  //console.log("GOT IT?????", loginUser)
+  //console.log("HOW ABOUT THIS?????", isUserLoggedIn)
 
   shuffleNewMovieDeck()
   if (data.length > 5){
@@ -144,8 +144,8 @@ export default function Deck({db}) {
           ImageLink: selectedMovie.pics[0],
           Year: selectedMovie.year,
           Rating: selectedMovie.rating,
-          Plot: selectedMovie.plot,
-          id: uuidv4()
+          Plot: selectedMovie.plot
+          // id: uuidv4()
         })
         .then(function (docRef) {
           console.log("Documentwritten with ID: ", docRef.id);
