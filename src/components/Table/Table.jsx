@@ -68,19 +68,19 @@ export default function Table(props){
           </Link>
         </div>
       <main style={{overflow : "scroll"}}>
-        <div className="favTableContainer" style={{overflow : "scroll"}}>
-          <div className="container-fluid" style={{overflow : "scroll"}}>
-            <table style={{overflow : "scroll"}} className="table table-sm table-striped table-dark table-hover">
+        <div className="favTableContainer" >
+          <div className="container-fluid" >
+            <table className="table table-sm table-striped table-dark table-hover">
               <thead className="thead-dark" className="col-md-4 ml-auto">
                 <tr height="20px" className="col-md-4 ml-auto">
                   <th>MOVIE TITLE</th>
                   <th>Delete</th>
                 </tr>
               </thead>
-              <tbody style={{overflow : "scroll"}}>
+              <tbody >
                 {favMovies.map((favMovie) => (
                   <tr key={uuidv4()}>
-                    <td style={{overflow : "scroll"}}> <img src={favMovie.ImageLink} alt={favMovie.id}/> {favMovie.Name} | {favMovie.Year} | {favMovie.Rating} </td>
+                    <td > <img src={favMovie.ImageLink} alt={favMovie.id}/> {favMovie.Name} | {favMovie.Year} | {favMovie.Rating} </td>
                     <td>
                       <button className="deleteSingleMovieButton" onClick={() => deleteSingleMovie(favMovie.Name)}>
                         Delete

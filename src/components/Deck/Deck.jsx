@@ -144,8 +144,8 @@ export default function Deck({db}) {
           ImageLink: selectedMovie.pics[0],
           Year: selectedMovie.year,
           Rating: selectedMovie.rating,
-          Plot: selectedMovie.plot
-          // id: uuidv4()
+          Plot: selectedMovie.plot,
+          id: uuidv4()
         })
         .then(function (docRef) {
           console.log("Documentwritten with ID: ", docRef.id);
