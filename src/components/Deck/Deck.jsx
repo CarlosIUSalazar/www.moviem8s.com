@@ -72,7 +72,6 @@ export default function Deck({db, fetchData}) {
 //   useEffect(() => {
 //    setTimeout(function(){ window.location.reload(true); }, 1);
 //  },[])
-
 const history = useHistory();
 
   const {loginUser, isUserLoggedIn} = useContext(LoginContext);
@@ -81,15 +80,30 @@ const history = useHistory();
 
   shuffleNewMovieDeck()
   if (data.length > 5){
-    
-    console.log("DATAAA BEFOREEE", data)
-    //data.splice(5)
-    console.log("DATAAAA After", data)
+
+    data.shift()
+    data.shift()
+    data.shift()
+    data.shift()
+    data.shift()
+
+    console.log("DATAAA", data)
+
 
   }
   count = 0;
   if (data.length > 5){
-    setTimeout(function(){ window.location.reload(true); }, 0);
+    //data.splice(5)
+    data.shift()
+    data.shift()
+    data.shift()
+    data.shift()
+    data.shift()
+    
+    setTimeout(() => {           
+      history.push("/deck")
+    }, 0)
+    //setTimeout(function(){ window.location.reload(true); }, 0);
   }
   console.log("Current deck of cards is: ", data)
   console.log("Count", count)
