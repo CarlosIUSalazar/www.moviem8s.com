@@ -67,7 +67,7 @@ export default function Table(props){
             </div>
           </Link>
         </div>
-      <div style={{overflow : "scroll"}}>
+      <section style={{overflow : "scroll"}}>
         <div className="favTableContainer" >
           <div className="container-fluid" >
             <table className="table table-sm table-striped table-dark table-hover">
@@ -95,7 +95,7 @@ export default function Table(props){
         <div className="deleteAllMoviesButtonContainer">
               <button className="deleteAllMoviesButton" onClick={() => deleteMoviesOnTable()}>Delete All Movies</button>
         </div>
-      </div>
+      </section>
     </>
     )
 }
