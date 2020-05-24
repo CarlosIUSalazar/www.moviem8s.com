@@ -1,12 +1,66 @@
 .login-page{
   text-align: center;
+  background: #ED213A;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  will-change: transform;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px;
 
+  position: relative;
 }
 
 .main-title{
   &__pic{
     padding-top: 10rem;
     width: 50%;
+    height: 30%;
+  }
+}
+
+.title-wrapper{
+  transform: translateY(30px);
+  &__main-title{
+    width: 40%;
     height: 40%;
+  }
+}
+
+.logo-wrapper{
+  transform: translate(-760px, -60px);
+  // position: absolute;
+  top:0;
+  left:0;
+  &__main-logo{
+    width: 10%;
+    height: 10%;
+  }
+}
+
+/*Small phones from :0 - 480px*/
+
+@media only screen and (max-width: 480px){
+  .logo-wrapper{
+    transform: translate(0, 15px);
+    display: inline-block;
+    &__main-logo{
+      width: 150px;
+      height: 150px;
+    }
+  }
+
+  .title-wrapper{
+    transform: translateY(10px);
+    display: inline-block;
+    &__main-title{
+      width: 250px;
+      height: 60px;
+    }
   }
 }

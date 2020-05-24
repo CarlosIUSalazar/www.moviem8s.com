@@ -1,4 +1,3 @@
-//https://codesandbox.io/embed/j0y0vpz59   Example
 import React, { useState, useContext, useEffect } from "react";
 
 import Card from "../Card/Card";
@@ -9,10 +8,17 @@ import randomMovies from "../../randomMovies.js";
 import { useSprings } from "react-spring/hooks";
 import { useGesture } from "react-with-gesture";
 
-import "../../styles/Deck.css";
+import {useHistory} from "react-router-dom";
+
+import "./Deck.css";
+
+
 
 ///Attempt to generate 5 random cards ///
 function shuffleNewMovieDeck() {
+
+ //data = [];
+
 let length = randomMovies.length;
 let randomMovieIndex = ""
 if (data.length > 5){
@@ -25,6 +31,25 @@ for (let i = 1; i <= 5; i++){
 }
 
 }
+
+
+// function shuffleNewMovieDeck2() {
+
+//  let length = randomMovies.length;
+//  let randomMovieIndex = ""
+//  if (data.length > 5){
+//    data.splice(5)
+//  }
+ 
+//  for (let i = 1; i <= 5; i++){
+//    randomMovieIndex = Math.floor(Math.random() * length)
+//    data.push(randomMovies[randomMovieIndex])
+//  }
+ 
+//  }
+
+
+
 let count = 0;
 let selectedMovie = "";
 let swipeRight = false;
@@ -47,18 +72,38 @@ export default function Deck({db, fetchData}) {
 //   useEffect(() => {
 //    setTimeout(function(){ window.location.reload(true); }, 1);
 //  },[])
+const history = useHistory();
 
   const {loginUser, isUserLoggedIn} = useContext(LoginContext);
-  console.log("GOT IT?????", loginUser)
-  console.log("HOW ABOUT THIS?????", isUserLoggedIn)
+  //console.log("GOT IT?????", loginUser)
+  //console.log("HOW ABOUT THIS?????", isUserLoggedIn)
 
   shuffleNewMovieDeck()
   if (data.length > 5){
-    data.splice(5)
+
+    data.shift()
+    data.shift()
+    data.shift()
+    data.shift()
+    data.shift()
+
+    console.log("DATAAA", data)
+
+
   }
   count = 0;
   if (data.length > 5){
-    setTimeout(function(){ window.location.reload(true); }, 0);
+    //data.splice(5)
+    data.shift()
+    data.shift()
+    data.shift()
+    data.shift()
+    data.shift()
+    
+    setTimeout(() => {           
+      history.push("/deck")
+    }, 0)
+    //setTimeout(function(){ window.location.reload(true); }, 0);
   }
   console.log("Current deck of cards is: ", data)
   console.log("Count", count)
@@ -81,6 +126,8 @@ export default function Deck({db, fetchData}) {
       direction: [xDir],
       velocity
     }) => {
+
+      
       // If you flick hard enough it should trigger the card to fly out
       const trigger = velocity > 0.2;
       // Direction should either point left or right
@@ -111,7 +158,20 @@ export default function Deck({db, fetchData}) {
         count++
         console.log("Count", count)
         if (count === 5){
-          setTimeout(function(){ window.location.reload(true); }, 500);
+          //setTimeout(function(){ window.location.reload(true); }, 300);
+          //data=[];
+          // let length = randomMovies.length;
+          // let randomMovieIndex = ""
+          // for (let i = 1; i <= 5; i++){
+          //   randomMovieIndex = Math.floor(Math.random() * length)
+          //   data.push(randomMovies[randomMovieIndex])
+          // }
+          // console.log("DATAAAAA", data)
+          // console.log("shuffling cards")
+          setTimeout(() => {           
+            history.push("/deck")
+          }, 300)
+
         }
       }
       set(i => {
@@ -193,3 +253,4 @@ export default function Deck({db, fetchData}) {
         />
       ))
 }
+
