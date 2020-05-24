@@ -29,13 +29,13 @@ export default function Table(props){
     setTimeout(() => {
       alert("Movies deleted successfully")
           window.location.reload(false);
-      }, 400);
+      }, 1100);
   });
   //setTimeout(function(){ window.location.reload(true); }, 1);
   }
 
   function deleteSingleMovie(title){
-  let deleteGame = db.collection('RealTable').where('Name','==',title);
+  let deleteGame = db.collection('RealTable').where('id','==',title);
   deleteGame.get().then(function(querySnapshot) {
     querySnapshot.forEach(function(doc) {
       doc.ref.delete();
@@ -67,33 +67,41 @@ export default function Table(props){
             </div>
           </Link>
         </div>
+ 
       <main style={{overflow : "scroll"}}>
-        <div className="favTableContainer" >
-          <div className="container-fluid" >
-            <table className="table table-sm table-striped table-dark table-hover">
+ 
+        <div className="favTableContainer" style={{overflow : "scroll"}}>
+  
+          <div className="container-fluid" style={{overflow : "scroll"}}>
+            
+            <table style={{overflow : "scroll"}} className="table table-sm table-striped table-dark table-hover">
+            <div className="deleteAllMoviesButtonContainer">
+                          <button className="deleteAllMoviesButton" onClick={() => deleteMoviesOnTable()}>Delete All Movies</button>
+                    </div>
               <thead className="thead-dark" className="col-md-4 ml-auto">
                 <tr height="20px" className="col-md-4 ml-auto">
                   <th>MOVIE TITLE</th>
                   <th>Delete</th>
                 </tr>
               </thead>
-              <tbody >
+              <tbody style={{overflow : "scroll"}}>
                 {favMovies.map((favMovie) => (
                   <tr key={uuidv4()}>
-                    <td > <img src={favMovie.ImageLink} alt={favMovie.id}/> {favMovie.Name} | {favMovie.Year} | {favMovie.Rating} </td>
+                    <td style={{overflow : "scroll"}}> <img src={favMovie.ImageLink} alt={favMovie.id}/> {favMovie.Name} | {favMovie.Year} | {favMovie.Rating} </td>
                     <td>
-                      <button className="deleteSingleMovieButton" onClick={() => deleteSingleMovie(favMovie.Name)}>
+                      <button className="deleteSingleMovieButton" onClick={() => deleteSingleMovie(favMovie.id)}>
                         Delete
                       </button>
                     </td>
+
                   </tr>
                 ))}
+
               </tbody>
+
             </table>
+
           </div>
-        </div>
-        <div className="deleteAllMoviesButtonContainer">
-              <button className="deleteAllMoviesButton" onClick={() => deleteMoviesOnTable()}>Delete All Movies</button>
         </div>
       </main>
     </>
