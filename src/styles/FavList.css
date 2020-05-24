@@ -1,22 +1,18 @@
-.tableclass{
-    display: flex;
-   
-    text-align: center;
-    justify-content: center;
-    /* font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* border-collapse: collapse; */
-    width: auto;
-}
+/* body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    user-select: none;
+    font-family: Raleway, sans-serif;
+    position: absolute;
+    overflow: scroll;
+  }
 
-.tablebodyclass{
-    background-color: darkred;
-}
-
-.tabletrclass{
-    background-color: white;
-}
-
-.tdtableclass{
-    /* background-color: gray; */
-}
+tableContainer {
+    margin: 200;
+    padding: 100;
+    position: relative;
+    width: 600px;
+    height: 100px;
+} */

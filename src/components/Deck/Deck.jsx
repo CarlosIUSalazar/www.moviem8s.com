@@ -1,6 +1,5 @@
 //https://codesandbox.io/embed/j0y0vpz59   Example
 import React, { useState, useContext, useEffect } from "react";
-
 import Card from "../Card/Card";
 import {LoginContext} from "../../context/LoginState";
 import data from "../../data.js";
@@ -8,8 +7,9 @@ import randomMovies from "../../randomMovies.js";
 
 import { useSprings } from "react-spring/hooks";
 import { useGesture } from "react-with-gesture";
+import "./Deck.css";
 
-import "../../styles/Deck.css";
+import {v4 as uuidv4} from "uuid";
 
 ///Attempt to generate 5 random cards ///
 function shuffleNewMovieDeck() {
@@ -43,11 +43,7 @@ const trans = (r, s) =>
     10}deg) rotateZ(${r}deg) scale(${s})`;
 
 
-export default function Deck({db, fetchData}) {
-//   useEffect(() => {
-//    setTimeout(function(){ window.location.reload(true); }, 1);
-//  },[])
-
+export default function Deck({db}) {
   const {loginUser, isUserLoggedIn} = useContext(LoginContext);
   console.log("GOT IT?????", loginUser)
   console.log("HOW ABOUT THIS?????", isUserLoggedIn)
@@ -135,7 +131,7 @@ export default function Deck({db, fetchData}) {
         //Save to Database When Swipe Right
         console.log("Final value of swipeRight = ", swipeRight)
         console.log("SelectedMovieName", selectedMovie.name)
-        
+
         if (isGone === true && swipeRight === true){
         db
         .collection("RealTable")
@@ -148,7 +144,8 @@ export default function Deck({db, fetchData}) {
           ImageLink: selectedMovie.pics[0],
           Year: selectedMovie.year,
           Rating: selectedMovie.rating,
-          Plot: selectedMovie.plot
+          Plot: selectedMovie.plot,
+          id: uuidv4()
         })
         .then(function (docRef) {
           console.log("Documentwritten with ID: ", docRef.id);
@@ -158,8 +155,7 @@ export default function Deck({db, fetchData}) {
         });
 
       }
-      
-              //// THIS SENDS BACK THE ADDED CARD TO THE STATE ALL THE WAY BACK IN APP.JSX SO IT CAN
+        //// THIS SENDS BACK THE ADDED CARD TO THE STATE ALL THE WAY BACK IN APP.JSX SO IT CAN
         // BE DISPLAYED REAL TIME IN THE TABLE WITHOUT RELOADING.
         //fetchData()
         ///

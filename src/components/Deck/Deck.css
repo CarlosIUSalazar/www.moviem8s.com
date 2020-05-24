@@ -1,0 +1,243 @@
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  background: #ED213A;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+html,
+body {
+  /* overscroll-behavior-y: contain; */
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  user-select: none;
+  font-family: Raleway, sans-serif;
+  position: fixed; 
+  /* overflow: scroll; */
+
+  background: #ED213A;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+main {
+  overflow: scroll; 
+  position: relative;
+  color: yellowgreen;
+  padding: 1%;
+  padding-bottom: 50%;
+  margin-bottom: 110px;
+  height: 1500px;
+
+  transform: translateY(140px);
+}
+
+/* .deckContainer was originally #root */
+
+.deckContainer {
+  background: #ED213A;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+  position: fixed;
+  position: relative;
+  /* overflow: scroll; */
+  width: 100%;
+  height: 100%;
+  cursor: url("https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png")
+      39 39,
+    auto;
+}
+
+.deckContainer > div > div {
+  overflow: scroll;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deckContainer > div > div > div {
+  overflow: scroll;
+  padding: 5px;
+  background-color: white;
+  background-size: auto 85%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 300px;
+  max-width: 300px;
+  height: 550px;
+  max-height: 570px;
+  will-change: transform;
+  border-radius: 10px;
+  box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
+    0 10px 10px -10px rgba(50, 50, 73, 0.3);
+}
+
+/* NEW CONTAINER TO HELP RESIZE TABLE */
+.favTableContainer{
+  background: #ED213A;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  overflow: scroll;
+  position: static;
+}
+
+img {
+  height: 380px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* REENABLE VISIBILITY THIS TO ADD THE LITTLE NEXT BUTTONS ON TOP OF EACH CARD TO DISPLAY MORE THAN ONE PHOTO" */
+button[aria-label="previous"],
+button[aria-label="next"] {
+  visibility: hidden;
+  background: salmon !important;
+  color: black !important;
+} 
+
+.MovieName {
+  font-size: 20px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.MovieYear{
+  font-size: 15px;
+  display: inline-block;
+  margin-right: 10px;
+  opacity: 0.7;
+  font-size: 1.35rem;
+}
+
+.MovieRating{
+  font-size: 15px;
+  margin-top: -15px;
+  margin-left: 2px;
+  color: gray;
+}
+
+.MoviePlot{
+  font-size: 13px;
+  margin-top: -15px;
+  margin-left: 2px;
+  color: gray;
+}
+
+/* .deleteSingleMovieButton{
+  background-color:darkred;
+  color: white;
+/* } */
+/* .btn-danger.custom-btn {
+	background-color: #000;
+  border-color: #000;
+  
+  width: fit-content;
+  height: fit-content;
+  vertical-align: 0px;
+  padding-top: -20;
+  padding-bottom: -20px;
+}  */
+
+
+.deleteSingleMovieButton {
+	box-shadow:inset 0px 34px 0px -15px #270b06;
+	background-color:#1d0e0e;
+	border:1px solid darkred;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	/* font-size:15px;
+	font-weight:bold; */
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #7a2a1d;
+}
+.deleteSingleMovieButton:hover {
+  box-shadow:inset 0px 34px 0px -15px #340902;
+  background-color:#380d07;
+}
+.deleteSingleMovieButton:active {
+	position:relative;
+	top:1px;
+}
+
+.deleteAllMoviesButtonContainer{
+  display: flex; justify-content: center;
+}
+
+.deleteAllMoviesButton {  
+  box-shadow:inset 0px 34px 0px -15px darkred;
+  background-color: darkred;
+	border:1 solid black;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	/* font-size:15px;
+	font-weight:bold; */
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #7a2a1d;
+}
+.deleteSingleMovieButton:hover {
+  box-shadow:inset 0px 34px 0px -15px #340902;
+  background-color:#380d07;
+}
+.deleteSingleMovieButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+h2 {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+h2:nth-of-type(2) {
+  opacity: 0.7;
+  font-size: 1.35rem;
+}
+
+h5 {
+  margin-top: -15px;
+  margin-left: 2px;
+  color: lightgray;
+}
+h5:last-of-type {
+  color: darkgray;
+}
+
+.card > div {
+  height: 380px !important;
+}
+
+.card {
+  height: 540px !important;
+}
+
+.slider-control-bottomcenter {
+  bottom: -15px !important;
+}
+
+.slider-control-bottomcenter > ul > li > button {
+  color: salmon !important;
+}
+
+
+@media only screen and (max-width: 480px){
+  main {
+    transform: translateY(80px);
+  }
+}

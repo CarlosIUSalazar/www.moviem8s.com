@@ -61,7 +61,7 @@ let randomMovies = [
       pics: [
         "https://m.media-amazon.com/images/M/MV5BOTIzYmUyMmEtMWQzNC00YzExLTk3MzYtZTUzYjMyMmRiYzIwXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_SX300.jpg",
       ],
-      name: "Hobbs & Shaw - Fast & Furious",
+      name: "Hobbs & Shaw",
       year: 2019,
       rating: "PG-13",
       plot: "Lawman Luke Hobbs and outcast Deckard Shaw form an unlikely alliance when a cyber-genetically enhanced villain threatens the future of humanity."
