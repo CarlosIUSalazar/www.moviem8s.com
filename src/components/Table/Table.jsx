@@ -29,7 +29,7 @@ export default function Table(props){
     setTimeout(() => {
       alert("Movies deleted successfully")
           window.location.reload(false);
-      }, 400);
+      }, 1100);
   });
   //setTimeout(function(){ window.location.reload(true); }, 1);
   }
