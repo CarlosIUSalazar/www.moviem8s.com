@@ -34,18 +34,19 @@ export default function Table(props){
     
     setTimeout(() => {
       alert("All movies deleted successfully")
-      history.push("/favorite-movies")
-    }, 500)
+      history.push("/deck")
+    }, 800)
     }
-
+    );
+  }
     // setTimeout(() => {
     //   alert("Movies deleted successfully")
     //       window.location.reload(true);
     //   }, 1000);
 
-    );
+    
   //setTimeout(function(){ window.location.reload(true); }, 1);
-  }
+ 
 
   function deleteSingleMovie(title){
   let deleteGame = db.collection('RealTable').where('Name','==',title);
@@ -59,15 +60,15 @@ export default function Table(props){
       history.push("/deck")
     }, 500)
 
-
+  });
+}
   //   setTimeout(() => {
   // alert("Movie deleted successfully")
   //     window.location.reload(true);
   // }, 400);
   
 
-});
-  }
+
 
   //fetchData is used to set the state in App.jsx so that the Table updates live without reloading it. Depending where I tried fetchData the behaviour of the App changed. This seems to be a good place for it.
   useEffect(() => {
