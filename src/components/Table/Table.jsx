@@ -6,10 +6,15 @@ import "../../styles/FavList.css";
 import "../Deck/Deck.css";
 import {v4 as uuidv4} from "uuid";
 import "../../styles/AppLogo.css"
+import {useHistory} from "react-router-dom";
 
 import "./Table.scss";
 
+
+
 export default function Table(props){
+
+  const history = useHistory();
 
   const db = firebase.firestore();
   const [favMovies, setFavMovies] = React.useState([])
@@ -26,11 +31,19 @@ export default function Table(props){
     res.forEach(element => {
       element.ref.delete();
     });
+    
     setTimeout(() => {
-      alert("Movies deleted successfully")
-          window.location.reload(true);
-      }, 1000);
-  });
+      alert("All movies deleted successfully")
+      history.push("/favorite-movies")
+    }, 500)
+    }
+
+    // setTimeout(() => {
+    //   alert("Movies deleted successfully")
+    //       window.location.reload(true);
+    //   }, 1000);
+
+    );
   //setTimeout(function(){ window.location.reload(true); }, 1);
   }
 
@@ -40,11 +53,20 @@ export default function Table(props){
     querySnapshot.forEach(function(doc) {
       doc.ref.delete();
     });
+
     setTimeout(() => {
-  alert("Movie deleted successfully")
-      window.location.reload(true);
-  }, 400);
-  });
+      alert("Movie deleted successfully")
+      history.push("/deck")
+    }, 500)
+
+
+  //   setTimeout(() => {
+  // alert("Movie deleted successfully")
+  //     window.location.reload(true);
+  // }, 400);
+  
+
+});
   }
 
   //fetchData is used to set the state in App.jsx so that the Table updates live without reloading it. Depending where I tried fetchData the behaviour of the App changed. This seems to be a good place for it.
