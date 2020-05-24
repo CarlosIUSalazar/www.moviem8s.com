@@ -8,10 +8,17 @@ import randomMovies from "../../randomMovies.js";
 import { useSprings } from "react-spring/hooks";
 import { useGesture } from "react-with-gesture";
 
+import {useHistory} from "react-router-dom";
+
 import "./Deck.css";
+
+
 
 ///Attempt to generate 5 random cards ///
 function shuffleNewMovieDeck() {
+
+ 
+
 let length = randomMovies.length;
 let randomMovieIndex = ""
 if (data.length > 5){
@@ -47,6 +54,8 @@ export default function Deck({db, fetchData}) {
 //    setTimeout(function(){ window.location.reload(true); }, 1);
 //  },[])
 
+const history = useHistory();
+
   const {loginUser, isUserLoggedIn} = useContext(LoginContext);
   console.log("GOT IT?????", loginUser)
   console.log("HOW ABOUT THIS?????", isUserLoggedIn)
@@ -80,6 +89,8 @@ export default function Deck({db, fetchData}) {
       direction: [xDir],
       velocity
     }) => {
+
+      
       // If you flick hard enough it should trigger the card to fly out
       const trigger = velocity > 0.2;
       // Direction should either point left or right
@@ -110,7 +121,11 @@ export default function Deck({db, fetchData}) {
         count++
         console.log("Count", count)
         if (count === 5){
-          setTimeout(function(){ window.location.reload(true); }, 300);
+          //setTimeout(function(){ window.location.reload(true); }, 300);
+          setTimeout(() => {
+            history.push("/deck")
+          }, 300)
+
         }
       }
       set(i => {
