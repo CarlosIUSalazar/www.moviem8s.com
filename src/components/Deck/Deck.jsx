@@ -17,7 +17,7 @@ import "./Deck.css";
 ///Attempt to generate 5 random cards ///
 function shuffleNewMovieDeck() {
 
- 
+ //data = [];
 
 let length = randomMovies.length;
 let randomMovieIndex = ""
@@ -31,6 +31,25 @@ for (let i = 1; i <= 5; i++){
 }
 
 }
+
+
+// function shuffleNewMovieDeck2() {
+
+//  let length = randomMovies.length;
+//  let randomMovieIndex = ""
+//  if (data.length > 5){
+//    data.splice(5)
+//  }
+ 
+//  for (let i = 1; i <= 5; i++){
+//    randomMovieIndex = Math.floor(Math.random() * length)
+//    data.push(randomMovies[randomMovieIndex])
+//  }
+ 
+//  }
+
+
+
 let count = 0;
 let selectedMovie = "";
 let swipeRight = false;
@@ -57,12 +76,16 @@ export default function Deck({db, fetchData}) {
 const history = useHistory();
 
   const {loginUser, isUserLoggedIn} = useContext(LoginContext);
-  console.log("GOT IT?????", loginUser)
-  console.log("HOW ABOUT THIS?????", isUserLoggedIn)
+  //console.log("GOT IT?????", loginUser)
+  //console.log("HOW ABOUT THIS?????", isUserLoggedIn)
 
   shuffleNewMovieDeck()
   if (data.length > 5){
-    data.splice(5)
+    
+    console.log("DATAAA BEFOREEE", data)
+    //data.splice(5)
+    console.log("DATAAAA After", data)
+
   }
   count = 0;
   if (data.length > 5){
@@ -122,9 +145,18 @@ const history = useHistory();
         console.log("Count", count)
         if (count === 5){
           //setTimeout(function(){ window.location.reload(true); }, 300);
-          setTimeout(() => {
+          //data=[];
+          let length = randomMovies.length;
+          let randomMovieIndex = ""
+          for (let i = 1; i <= 5; i++){
+            randomMovieIndex = Math.floor(Math.random() * length)
+            data.push(randomMovies[randomMovieIndex])
+          }
+          console.log("DATAAAAA", data)
+          console.log("shuffling cards")
+          setTimeout(() => {           
             history.push("/deck")
-          }, 300)
+          }, 500)
 
         }
       }
