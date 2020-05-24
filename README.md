@@ -1,7 +1,15 @@
+<p align="center">
+ <img width=500px height=px src="./public/cc.png"/>
+</p>
+
+<h3 align="center">Duo Project by Carlos Salazar and  Kohki Shiga</h3>
 
 # Movie M8s
 
-![MovieM8s](./public/MovieM8SLogo.png)
+<p align="left">
+ <img width=200px height=px src="./public/MovieM8SLogo.png"/>
+</p>
+
 
 **A mobile-friendly app that lets you swipe left to dismiss a movie if you’re not interested in watching it, or right to save it in your “To Watch” list.**
 
