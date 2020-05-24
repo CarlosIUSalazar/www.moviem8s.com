@@ -9,7 +9,7 @@ import { useSprings } from "react-spring/hooks";
 import { useGesture } from "react-with-gesture";
 import "./Deck.css";
 
-// import {v4 as uuidv4} from "uuid";
+import {v4 as uuidv4} from "uuid";
 
 ///Attempt to generate 5 random cards ///
 function shuffleNewMovieDeck() {
@@ -186,6 +186,7 @@ export default function Deck({db}) {
           trans={trans}
           data={data}
           bind={bind}
+          key={uuidv4()}
         />
       ))
 }
