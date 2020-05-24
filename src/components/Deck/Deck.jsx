@@ -110,7 +110,7 @@ export default function Deck({db, fetchData}) {
         count++
         console.log("Count", count)
         if (count === 5){
-          setTimeout(function(){ window.location.reload(true); }, 500);
+          setTimeout(function(){ window.location.reload(true); }, 300);
         }
       }
       set(i => {
