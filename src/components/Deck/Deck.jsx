@@ -146,17 +146,17 @@ const history = useHistory();
         if (count === 5){
           //setTimeout(function(){ window.location.reload(true); }, 300);
           //data=[];
-          let length = randomMovies.length;
-          let randomMovieIndex = ""
-          for (let i = 1; i <= 5; i++){
-            randomMovieIndex = Math.floor(Math.random() * length)
-            data.push(randomMovies[randomMovieIndex])
-          }
-          console.log("DATAAAAA", data)
-          console.log("shuffling cards")
+          // let length = randomMovies.length;
+          // let randomMovieIndex = ""
+          // for (let i = 1; i <= 5; i++){
+          //   randomMovieIndex = Math.floor(Math.random() * length)
+          //   data.push(randomMovies[randomMovieIndex])
+          // }
+          // console.log("DATAAAAA", data)
+          // console.log("shuffling cards")
           setTimeout(() => {           
             history.push("/deck")
-          }, 500)
+          }, 300)
 
         }
       }
