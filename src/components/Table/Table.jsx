@@ -67,10 +67,17 @@ export default function Table(props){
             </div>
           </Link>
         </div>
+ 
       <main style={{overflow : "scroll"}}>
+ 
         <div className="favTableContainer" style={{overflow : "scroll"}}>
+  
           <div className="container-fluid" style={{overflow : "scroll"}}>
+            
             <table style={{overflow : "scroll"}} className="table table-sm table-striped table-dark table-hover">
+            <div className="deleteAllMoviesButtonContainer">
+                          <button className="deleteAllMoviesButton" onClick={() => deleteMoviesOnTable()}>Delete All Movies</button>
+                    </div>
               <thead className="thead-dark" className="col-md-4 ml-auto">
                 <tr height="20px" className="col-md-4 ml-auto">
                   <th>MOVIE TITLE</th>
@@ -86,14 +93,15 @@ export default function Table(props){
                         Delete
                       </button>
                     </td>
+
                   </tr>
                 ))}
+
               </tbody>
+
             </table>
+
           </div>
-        </div>
-        <div className="deleteAllMoviesButtonContainer">
-              <button className="deleteAllMoviesButton" onClick={() => deleteMoviesOnTable()}>Delete All Movies</button>
         </div>
       </main>
     </>
