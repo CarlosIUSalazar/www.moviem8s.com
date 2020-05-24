@@ -28,8 +28,8 @@ export default function Table(props){
     });
     setTimeout(() => {
       alert("Movies deleted successfully")
-          window.location.reload(false);
-      }, 800);
+          window.location.reload(true);
+      }, 1000);
   });
   //setTimeout(function(){ window.location.reload(true); }, 1);
   }
@@ -42,7 +42,7 @@ export default function Table(props){
     });
     setTimeout(() => {
   alert("Movie deleted successfully")
-      window.location.reload(false);
+      window.location.reload(true);
   }, 400);
   });
   }
