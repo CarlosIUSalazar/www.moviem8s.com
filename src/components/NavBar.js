@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Deck from "./Deck"
 import Table from "./Table"
 import Button from "./Button"
-
+import "../styles/NavBar.css"
 
 function NavBar(){
 
@@ -19,12 +19,11 @@ function NavBar(){
 ///////////////////RENDER SECTION//////////////////
 
 if (view === "DeckView"){
-    return ( 
-    <>
-        <Button />
-        <Deck />
-        <button className="btn btn-danger" onClick={() => swapViews()}>View My Saved Movies</button>
-    </>
+    return (     
+        <>
+        <button className="ButtonDiv" onClick={() => setView("TableView")}>View Saved Movies</button>
+        <Deck setView = {setView}/>
+        </>
     );
     }
     else if (view === "TableView"){

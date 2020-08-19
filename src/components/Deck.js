@@ -5,7 +5,7 @@ import { useGesture } from "react-with-gesture";
 import Card from "./Card";
 import data from "../data.js";
 import randomMovies from "../randomMovies.js";
-
+import "../styles/Button.css"
 
 import firebase from "firebase";
 
@@ -55,7 +55,7 @@ const trans = (r, s) =>
     10}deg) rotateZ(${r}deg) scale(${s})`;
 
 
-function Deck() {
+function Deck({setView}) {
   shuffleNewMovieDeck()
   console.log("Current deck of cards is: ", data)
   console.log("all cards gone now!")
@@ -155,7 +155,7 @@ function Deck() {
 
 
         return {
-          
+
           x,
           rot,
           scale,
@@ -174,6 +174,10 @@ function Deck() {
   );
     // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
   return props.map(({ x, y, rot, scale }, i) => (
+    
+  <> 
+        
+
     <Card
       i={i}
       x={x}
@@ -184,6 +188,7 @@ function Deck() {
       data={data}
       bind={bind}
     />
+  </>
   ));
 }
 

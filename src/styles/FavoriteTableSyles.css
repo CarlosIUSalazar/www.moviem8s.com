@@ -11,8 +11,7 @@ main {
     padding-bottom: 50%;
     margin-bottom: 110px;
     height: 1500px;
-  
-    transform: translateY(140px);
+    transform: translateY(-19px);
   }
 
 .leaderBoardTitle {

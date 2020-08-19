@@ -59,23 +59,12 @@ function Table({ setView }) {
 
   return (
     <>
-      <button onClick={() => setView("DeckView")}>Back to Deck</button>
-      <h1>This is a Table View!!</h1>
-
-      {/* <div className="fullLogoImageContainer">
-        <div className="main-logo">
-          <img src="/MovieM8SLogo.png" className="mainLogo" />
-        </div>
-        <div className="main-title">
-          <img src="/moviem8s.png" className="fullTitleImage" />
-        </div>
-        <div>
-
-          <button className="go-back-to-deck">Go back to decks</button>
-        </div>
-      </div> */}
-
       <main style={{ overflow: "scroll" }}>
+      
+      <div>
+      <button onClick={() => setView("DeckView")}>Back to Deck</button>
+      </div>
+        
         <div className="favTableContainer" style={{ overflow: "scroll" }}>
           <div className="container-fluid" style={{ overflow: "scroll" }}>
             <table
