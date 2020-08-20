@@ -5,7 +5,7 @@ import { useGesture } from "react-with-gesture";
 import Card from "./Card";
 import data from "../data.js";
 import randomMovies from "../randomMovies.js";
-import "../styles/Deck.css";
+
 
 import firebase from "firebase";
 

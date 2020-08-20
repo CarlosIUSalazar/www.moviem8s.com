@@ -1,8 +1,9 @@
-import React, { Component, Fragment } from "react";
-import Deck from "./components/Deck";
-import Table from "./components/Table";
-import firebase from "firebase";
-import fire from "./fire";
+import React from "react";
+import NavBar from "./components/NavBar"
+//import Deck from "./components/Deck";
+//import Table from "./components/Table";
+//import firebase from "firebase";
+//import fire from "./fire";
 
 // let firebaseConfig = {
 //   // Your web app's Firebase configuration
@@ -18,6 +19,17 @@ import fire from "./fire";
 // firebase.initializeApp(firebaseConfig);
 //let dbFavMovies = firebase.firestore();
 function App() {
+
+  return (
+    <>   
+      <NavBar />
+    </>
+  
+);
+}
+
+export default App;
+
   // let database = firebase.firestore();
   // // let dbFavMovies = firebase.firestore();
 
@@ -41,15 +53,4 @@ function App() {
   //     console.error("Error adding document: ", error);
   //   });
 
-  return (
-      <React.Fragment>
-      
-      <h1>MovieM8S</h1>
-      <Deck />
-      <Table />
-      </React.Fragment>
-    
-  );
-}
 
-export default App;
