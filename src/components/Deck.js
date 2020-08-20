@@ -1,15 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
 
 import Card from "./Card";
-
 import data from "../data";
 import randomMovies from "../randomMovies";
-
 import { useSprings } from "react-spring/hooks";
 import { useGesture } from "react-with-gesture";
-
 import {useHistory} from "react-router-dom";
-
 import "../styles/Deck.css";
 
 import firebase from "firebase";
@@ -174,7 +170,7 @@ const history = useHistory();
         count++
         console.log("Count", count)
         if (count === 5){
-          //setTimeout(function(){ window.location.reload(true); }, 300);
+          setTimeout(function(){ window.location.reload(true); }, 300);
           //data=[];
           // let length = randomMovies.length;
           // let randomMovieIndex = ""
@@ -184,9 +180,11 @@ const history = useHistory();
           // }
           // console.log("DATAAAAA", data)
           // console.log("shuffling cards")
-          setTimeout(() => {           
-            history.push("/deck")
-          }, 300)
+
+          //***** ESTE LO DESACTIVE EN MOVIE MATES 2 Y ACTIVE EL RELOAD DE LA PAGINA
+          // setTimeout(() => {           
+          //   history.push("/deck")
+          // }, 300)
 
         }
       }
