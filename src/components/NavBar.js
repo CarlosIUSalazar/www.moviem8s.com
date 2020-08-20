@@ -16,13 +16,16 @@ function NavBar(){
         }
     }
 
+
+
 ///////////////////RENDER SECTION//////////////////
 
 if (view === "DeckView"){
     return (     
         <>
-        <button className="ButtonDiv" onClick={() => setView("TableView")}>View Saved Movies</button>
+        
         <Deck setView = {setView}/>
+        <button className="ButtonDiv" onClick={() => setView("TableView")}>View Saved Movies</button>
         </>
     );
     }
