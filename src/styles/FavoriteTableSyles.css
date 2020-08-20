@@ -2,6 +2,19 @@ body {
     max-width: 500px;
     margin: auto;
 }
+
+main {
+    overflow: scroll; 
+    position: relative;
+    color: yellowgreen;
+    padding: 1%;
+    padding-bottom: 50%;
+    margin-bottom: 110px;
+    height: 1500px;
+  
+    transform: translateY(140px);
+  }
+
 .leaderBoardTitle {
     font-size: xx-large;
     font-family: Arcade_I;
